@@ -216,6 +216,49 @@ const skillGroups = [
       },
     ],
   },
+
+  {
+    title: "Design & UX/UI",
+    tone: "violet",
+    skills: [
+      {
+        name: "Figma",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
+        alt: "Logo Figma",
+      },
+      {
+        name: "Wireframes",
+        logo: "design",
+        alt: "Pictogramme wireframe",
+      },
+      {
+        name: "Maquettes web et mobile",
+        logo: "design",
+        alt: "Pictogramme maquettes web et mobile",
+      },
+      {
+        name: "Prototypes interactifs",
+        logo: "design",
+        alt: "Pictogramme prototypes interactifs",
+      },
+      {
+        name: "Conception responsive",
+        logo: "design",
+        alt: "Pictogramme conception responsive",
+      },
+      {
+        name: "Organisation et hiérarchisation des contenus",
+        logo: "design",
+        alt: "Pictogramme organisation des contenus",
+      },
+      {
+        name: "Bases des principes UX/UI",
+        logo: "design",
+        alt: "Pictogramme principes UX/UI",
+      },
+    ],
+  },
+
   {
     title: "Backend",
     tone: "violet",
@@ -284,11 +327,7 @@ const skillGroups = [
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg",
         alt: "Logo Android Studio",
       },
-      {
-        name: "Figma",
-        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
-        alt: "Logo Figma",
-      },
+
       {
         name: "Canva",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg",
@@ -593,10 +632,13 @@ export default function Home() {
                             <TrainFront aria-hidden="true" />
                           ) : skill.logo === "resend" ? (
                             <MailCheck aria-hidden="true" />
+                          ) : skill.logo === "design" ? (
+                            <Layers3 aria-hidden="true" />
                           ) : (
                             <img src={skill.logo} alt={skill.alt} />
                           )}
                         </span>
+
                         <strong>{skill.name}</strong>
                       </div>
                     </div>
@@ -744,7 +786,7 @@ export default function Home() {
                   <Phone size={15} /> +225 07 67 21 48 18
                 </a>
                 <a
-                  href="https://linkedin.com/in/yvan-ossey"
+                  href="https://linkedin.com/in/yvan-ossey-7a7621337/"
                   target="_blank"
                   rel="noreferrer"
                 >
