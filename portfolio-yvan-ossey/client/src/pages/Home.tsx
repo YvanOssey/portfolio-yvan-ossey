@@ -350,7 +350,19 @@ export default function Home() {
           <a href="#projects" onClick={() => setMenuOpen(false)}>
             Projets
           </a>
+          <a
+            href={cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+          >
+            Voir mon CV
+          </a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </a>
         </div>
+
         <div className="source-status">
           <i /> Disponible pour échanger
         </div>
