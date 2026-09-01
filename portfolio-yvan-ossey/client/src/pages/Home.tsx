@@ -326,10 +326,39 @@ const skillGroups = [
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  function submitContact(event: FormEvent<HTMLFormElement>) {
+  async function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(true);
+    setSending(true);
+    setSubmitError("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xnpqpjek", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("L’envoi du message a échoué.");
+      }
+
+      setSent(true);
+      form.reset();
+    } catch {
+      setSubmitError(
+        "Impossible d’envoyer le message pour le moment. Veuillez réessayer ou utiliser l’e-mail affiché à gauche."
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -455,7 +484,6 @@ export default function Home() {
           </div>
           <div className="about-grid">
             <div className="about-visual">
-
               <h2>
                 Qui suis-<em>je ?</em>
               </h2>
@@ -463,7 +491,6 @@ export default function Home() {
               <div className="about-photo-frame">
                 <img src={profilePhoto} alt="Portrait de Yvan Ossey" />
               </div>
-            
             </div>
 
             <div className="about-body">
@@ -579,8 +606,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        
 
         <section id="projects" className="source-section projects-section">
           <div className="source-label">
@@ -742,27 +767,42 @@ export default function Home() {
                   <div className="form-row">
                     <label>
                       Prénom
-                      <input required placeholder="Yvan" />
+                      <input name="prenom" required placeholder="Yvan" />
                     </label>
                     <label>
                       Nom
-                      <input required placeholder="Ossey" />
+                      <input name="nom" required placeholder="Ossey" />
                     </label>
                   </div>
+
                   <label>
                     E-mail
                     <input
+                      name="email"
                       required
                       type="email"
                       placeholder="vous@exemple.com"
                     />
                   </label>
+
                   <label>
                     Message
-                    <textarea required placeholder="Décrivez votre projet..." />
+                    <textarea
+                      name="message"
+                      required
+                      placeholder="Décrivez votre projet..."
+                    />
                   </label>
-                  <button className="source-btn primary" type="submit">
-                    Envoyer le message <ArrowUpRight size={16} />
+
+                  {submitError && <p className="form-error">{submitError}</p>}
+
+                  <button
+                    className="source-btn primary"
+                    type="submit"
+                    disabled={sending}
+                  >
+                    {sending ? "Envoi en cours..." : "Envoyer le message"}
+                    {!sending && <ArrowUpRight size={16} />}
                   </button>
                 </form>
               )}
