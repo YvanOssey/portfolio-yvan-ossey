@@ -28,6 +28,7 @@ import certificationImage from "../assets/certification-utilisation-ordi-equipem
 import fullcertificationImage from "../assets/certification-developpeur-fullstack.png";
 import vibecertificationImage from "../assets/certification-vibeathon.png";
 import hackcertificationImage from "../assets/certification-koumanplay.jpeg";
+import profilePhoto from "../assets/photo-yvan-ossey.png";
 
 const cvUrl =
   "https://files.manuscdn.com/user_upload_by_module/session_file/310519663930880878/NKqnlJysDrvZbIct.pdf";
@@ -455,13 +456,15 @@ export default function Home() {
             01 <span /> À PROPOS
           </div>
           <div className="about-grid">
-            <div>
+            <div className="about-visual">
+              <div className="about-photo-frame">
+                <img src={profilePhoto} alt="Portrait de Yvan Ossey" />
+              </div>
               <h2>
-                Qui
-                <br />
-                suis-<em>je ?</em>
+                Qui suis-<em>je ?</em>
               </h2>
             </div>
+
             <div className="about-body">
               <p>
                 Je m’appelle <b>Ossey Yvan Jean De Kenty</b>, étudiant en{" "}
