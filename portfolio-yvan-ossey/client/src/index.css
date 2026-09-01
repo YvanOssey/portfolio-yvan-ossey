@@ -139,3 +139,95 @@ button, input, textarea { font:inherit; }
 .detail-feature-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-top:1px solid var(--border); }.detail-feature-list > div { display:flex; gap:1rem; padding:1.1rem 0; border-bottom:1px solid var(--border); }.detail-feature-list > div:nth-child(odd) { margin-right:1.5rem; }.detail-feature-list span { color:var(--cyan); font:500 .58rem "JetBrains Mono",monospace; }.detail-feature-list p { margin:0; color:var(--grey); font-size:.82rem; line-height:1.6; }
 .detail-architecture { border:1px solid var(--border2); }.detail-architecture > div { display:grid; grid-template-columns:.5fr 1.5fr; gap:1rem; padding:1rem 1.1rem; border-bottom:1px solid var(--border); }.detail-architecture > div:last-child { border-bottom:0; }.detail-architecture span { color:var(--cyan); font:500 .58rem "JetBrains Mono",monospace; text-transform:uppercase; }.detail-architecture strong { color:var(--grey); font-size:.82rem; font-weight:400; }.detail-security { display:flex; gap:1rem; align-items:flex-start; margin-top:1.5rem; padding:1.2rem; border:1px solid rgba(0,255,200,.22); background:rgba(0,255,200,.04); }.detail-security svg { color:var(--cyan); flex:0 0 auto; }.detail-security p { margin:0; color:var(--grey); font-size:.8rem; line-height:1.7; }.detail-security b { color:var(--white); }
 @media (max-width:700px) { .detail-extra-grid,.detail-feature-list { grid-template-columns:1fr; gap:1.5rem; }.detail-feature-list > div:nth-child(odd) { margin-right:0; }.detail-architecture > div { grid-template-columns:1fr; gap:.35rem; } }
+
+
+/* Section Certifications */
+.certifications-section {
+  background: var(--bg);
+}
+
+.certification-intro {
+  margin-top: 3rem;
+}
+
+.certification-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 75rem;
+  margin-top: 4rem;
+}
+
+.certification-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid var(--border);
+  background: rgba(13, 13, 20, .72);
+  transition: transform .25s var(--ease), border-color .25s, background .25s;
+}
+
+.certification-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(155, 93, 229, .5);
+  background: var(--surface2);
+}
+
+.certification-icon {
+  width: 3.4rem;
+  height: 3.4rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(155, 93, 229, .45);
+  color: var(--violet);
+  background: rgba(155, 93, 229, .09);
+}
+
+.certification-content {
+  min-width: 0;
+}
+
+.certification-label {
+  color: var(--violet);
+  font: 500 .58rem "JetBrains Mono", monospace;
+  letter-spacing: .12em;
+}
+
+.certification-content h3 {
+  margin: .35rem 0 .45rem;
+  color: var(--white);
+  font: 600 clamp(1.1rem, 2vw, 1.55rem) "Clash Display", sans-serif;
+  letter-spacing: -.03em;
+}
+
+.certification-content p {
+  margin: 0;
+  color: var(--grey);
+  font-size: .78rem;
+}
+
+.certification-card time {
+  color: var(--cyan);
+  font: 500 .62rem "JetBrains Mono", monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .certification-card {
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding: 1.15rem;
+  }
+
+  .certification-card time {
+    grid-column: 2;
+  }
+
+  .certification-icon {
+    width: 2.9rem;
+    height: 2.9rem;
+  }
+}
