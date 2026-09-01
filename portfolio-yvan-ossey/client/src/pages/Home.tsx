@@ -520,9 +520,14 @@ export default function Home() {
           <div className="certification-list">
             {certifications.map(certification => (
               <article className="certification-card" key={certification.name}>
-                <div className="certification-icon">
-                  <Award size={25} />
+                <div className="certification-image-wrap">
+                  <img
+                    className="certification-image"
+                    src={certification.image}
+                    alt={`Certificat ${certification.name}`}
+                  />
                 </div>
+
                 <div className="certification-content">
                   <span className="certification-label">CERTIFICATION</span>
                   <h3>{certification.name}</h3>
