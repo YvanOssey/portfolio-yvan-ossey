@@ -22,7 +22,10 @@ import {
   Wrench,
   X,
 } from "lucide-react";
-import certificationImage from "../assets/certification-sensibilisation-numerique.png";
+import numcertificationImage from "../assets/certification-sensibilisation-numerique.png";
+import cybercertificationImage from "../assets/certification-introduction-cybersecurite.png";
+import certificationImage from "../assets/certification-utilisation-ordi-equipementmobile.png";
+import fullcertificationImage from "../assets/certification-developpeur-fullstack.png";
 
 const cvUrl =
   "https://files.manuscdn.com/user_upload_by_module/session_file/310519663930880878/NKqnlJysDrvZbIct.pdf";
@@ -124,12 +127,35 @@ const projectSlug = (title: string) =>
     .replace(/(^-|-$)/g, "");
 
 const certifications = [
+
+  {
+    name: "Introduction à la Cybersécurité",
+    issuer: "Cybastion IT Academy",
+    date: "10 juillet 2025",
+    image: cybercertificationImage,
+  },
+
   {
     name: "Sensibilisation au numérique",
     issuer: "Cybastion IT Academy",
     date: "11 juillet 2025",
+    image: numcertificationImage,
+  },
+
+  {
+    name: "Utilisation d'Ordinateurs et d'Equipements mobiles",
+    issuer: "Cybastion IT Academy",
+    date: "14 juillet 2025",
     image: certificationImage,
   },
+
+  {
+    name: "Full-Stack Development 101",
+    issuer: "Simplilearn",
+    date: "20 juin 2026",
+    image: fullcertificationImage,
+  },
+
 ];
 
 const skillGroups = [
@@ -407,7 +433,7 @@ export default function Home() {
             <div className="about-body">
               <p>
                 Je m’appelle <b>Ossey Yvan Jean De Kenty</b>, étudiant en{" "}
-                <b>Licence 3 MIAGE</b> à l’Université Polytechnique de
+                <b>Licence 2 MIAGE</b> à l’Université Polytechnique de
                 Bingerville.
               </p>
               <p>
