@@ -384,7 +384,7 @@ export default function Home() {
           <div className="hero-glow violet" />
           <div className="hero-copy">
             <div className="terminal">
-              <span>~/portfolio $</span> whoami <b />
+              <span>Yvan.</span>Dev <b />
             </div>
             <p className="source-kicker">
               DÉVELOPPEUR WEB & MOBILE · COCODY, RIVIERA 4 · CÔTE D’IVOIRE
@@ -395,8 +395,7 @@ export default function Home() {
               <small>Jean De Kenty</small>
             </h1>
             <p className="source-lead">
-              Étudiant en <b>Licence 2 MIAGE</b> · Développeur web et mobile
-              junior.
+              Étudiant en <b>Licence 2 MIAGE</b> · Développeur web et mobile.
               <br />
               Je conçois des applications modernes, rapides et complètes.
             </p>
@@ -443,7 +442,6 @@ export default function Home() {
                 </code>
               </pre>
             </div>
-            <div className="art-tag">BUILD / 2026</div>
           </div>
           <a className="scroll-indicator" href="#about">
             <span>SCROLL TO EXPLORE</span>
@@ -468,23 +466,42 @@ export default function Home() {
             <div className="about-body">
               <p>
                 Je m’appelle <b>Ossey Yvan Jean De Kenty</b>, étudiant en{" "}
-                <b>Licence 2 MIAGE</b> à l’Université Polytechnique de
+                <b>Licence 2 MIAGE</b> à l’Université Polytechnique de{" "}
                 Bingerville.
               </p>
+
               <p>
                 Passionné par le développement web et mobile, je travaille avec{" "}
                 <b>React, Node.js, MySQL, Flutter, Dart et Supabase</b>.
                 Rigoureux, autonome et curieux, je souhaite contribuer à des
                 projets innovants tout en renforçant mes compétences.
               </p>
+
+              <p>
+                J’intègre les agents IA à mon processus de développement comme
+                de véritables partenaires de travail. Je les guide et les
+                coordonne pour accélérer la recherche, le prototypage et la mise
+                en œuvre de solutions robustes.
+              </p>
+
+              <p>
+                Cette approche me permet de gagner en efficacité tout en restant
+                pleinement responsable des décisions techniques. Je reste
+                toutefois maître des décisions essentielles — architecture,
+                sécurité et qualité du code. Chaque production est analysée,
+                adaptée et validée par mes soins afin de garantir un résultat
+                fiable et maintenable.
+              </p>
+
               <p>
                 Mon objectif est de devenir un <b>développeur full-stack</b>{" "}
                 polyvalent, capable de créer des solutions digitales à impact
                 réel.
               </p>
+
               <div className="about-facts">
                 <span>
-                  <small>FORMATION</small>Licence 3 MIAGE
+                  <small>FORMATION</small>Licence 2 MIAGE
                 </span>
                 <span>
                   <small>STATUT</small>Étudiant
