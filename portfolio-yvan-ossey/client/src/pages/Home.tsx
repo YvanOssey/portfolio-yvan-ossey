@@ -27,6 +27,7 @@ import cybercertificationImage from "../assets/certification-introduction-cybers
 import certificationImage from "../assets/certification-utilisation-ordi-equipementmobile.png";
 import fullcertificationImage from "../assets/certification-developpeur-fullstack.png";
 import vibecertificationImage from "../assets/certification-vibeathon.png";
+import hackcertificationImage from "../assets/certification-koumanplay.jpeg";
 
 const cvUrl =
   "https://files.manuscdn.com/user_upload_by_module/session_file/310519663930880878/NKqnlJysDrvZbIct.pdf";
@@ -145,6 +146,7 @@ const certifications = [
     result: "Lauréat",
     description:
       "Conception d’un prototype numérique favorisant la transmission du patrimoine culturel ivoirien à travers des proverbes, des contes audio et des défis interactifs adaptés aux différents groupes ethniques.",
+    image: hackcertificationImage,
   },
 
   {
