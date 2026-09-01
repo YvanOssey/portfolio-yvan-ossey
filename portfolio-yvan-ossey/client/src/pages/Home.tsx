@@ -345,9 +345,6 @@ export default function Home() {
           <a href="#skills" onClick={() => setMenuOpen(false)}>
             Stacks
           </a>
-          <a href="#certifications" onClick={() => setMenuOpen(false)}>
-            Certifications
-          </a>
           <a href="#projects" onClick={() => setMenuOpen(false)}>
             Projets
           </a>
@@ -358,6 +355,9 @@ export default function Home() {
             onClick={() => setMenuOpen(false)}
           >
             Voir mon CV
+          </a>
+          <a href="#certifications" onClick={() => setMenuOpen(false)}>
+            Certifications
           </a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>
             Contact
@@ -459,7 +459,7 @@ export default function Home() {
               <h2>
                 Qui suis-<em>je ?</em>
               </h2>
-              
+
               <div className="about-photo-frame">
                 <img src={profilePhoto} alt="Portrait de Yvan Ossey" />
               </div>
@@ -580,55 +580,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="certifications"
-          className="source-section certifications-section"
-        >
-          <div className="source-label">
-            03 <span /> CERTIFICATIONS
-          </div>
-
-          <div className="section-intro certification-intro">
-            <h2>
-              Mes <em>certifications</em>
-            </h2>
-            <p>
-              Des formations qui renforcent ma compréhension des usages
-              numériques et ma capacité à accompagner des projets responsables.
-            </p>
-          </div>
-
-          <div className="certification-list">
-            {certifications.map(certification => (
-              <article className="certification-card" key={certification.name}>
-                <div className="certification-image-wrap">
-                  <img
-                    className="certification-image"
-                    src={certification.image}
-                    alt={`Certificat ${certification.name}`}
-                  />
-                </div>
-
-                <div className="certification-content">
-                  <span className="certification-label">
-                    {certification.result}
-                  </span>
-                  <h3>{certification.name}</h3>
-                  <p className="certification-issuer">{certification.issuer}</p>
-                  <p className="certification-description">
-                    {certification.description}
-                  </p>
-                </div>
-
-                <time dateTime="2025-07-11">{certification.date}</time>
-              </article>
-            ))}
-          </div>
-        </section>
+        
 
         <section id="projects" className="source-section projects-section">
           <div className="source-label">
-            04 <span /> RÉALISATIONS
+            03 <span /> RÉALISATIONS
           </div>
           <div className="section-intro project-intro">
             <h2>
@@ -691,6 +647,52 @@ export default function Home() {
                 </article>
               )
             )}
+          </div>
+        </section>
+
+        <section
+          id="certifications"
+          className="source-section certifications-section"
+        >
+          <div className="source-label">
+            04 <span /> CERTIFICATIONS
+          </div>
+
+          <div className="section-intro certification-intro">
+            <h2>
+              Mes <em>certifications</em>
+            </h2>
+            <p>
+              Des formations qui renforcent ma compréhension des usages
+              numériques et ma capacité à accompagner des projets responsables.
+            </p>
+          </div>
+
+          <div className="certification-list">
+            {certifications.map(certification => (
+              <article className="certification-card" key={certification.name}>
+                <div className="certification-image-wrap">
+                  <img
+                    className="certification-image"
+                    src={certification.image}
+                    alt={`Certificat ${certification.name}`}
+                  />
+                </div>
+
+                <div className="certification-content">
+                  <span className="certification-label">
+                    {certification.result}
+                  </span>
+                  <h3>{certification.name}</h3>
+                  <p className="certification-issuer">{certification.issuer}</p>
+                  <p className="certification-description">
+                    {certification.description}
+                  </p>
+                </div>
+
+                <time dateTime="2025-07-11">{certification.date}</time>
+              </article>
+            ))}
           </div>
         </section>
 
