@@ -22,6 +22,7 @@ import {
   Wrench,
   X,
 } from "lucide-react";
+import certificationImage from "../assets/certification-sensibilisation-numerique.png";
 
 const cvUrl =
   "https://files.manuscdn.com/user_upload_by_module/session_file/310519663930880878/NKqnlJysDrvZbIct.pdf";
@@ -127,6 +128,7 @@ const certifications = [
     name: "Sensibilisation au numérique",
     issuer: "Cybastion IT Academy",
     date: "11 juillet 2025",
+    image: certificationImage,
   },
 ];
 
@@ -334,7 +336,7 @@ export default function Home() {
               <small>Jean De Kenty</small>
             </h1>
             <p className="source-lead">
-              Étudiant en <b>Licence 3 MIAGE</b> · Développeur web et mobile
+              Étudiant en <b>Licence 2 MIAGE</b> · Développeur web et mobile
               junior.
               <br />
               Je conçois des applications modernes, rapides et complètes.
@@ -353,11 +355,11 @@ export default function Home() {
                 <span>Projets documentés</span>
               </div>
               <div>
-                <b>06</b>
+                <b>05</b>
                 <span>Axes techniques</span>
               </div>
               <div>
-                <b>L3</b>
+                <b>L2</b>
                 <span>MIAGE</span>
               </div>
             </div>
@@ -507,8 +509,7 @@ export default function Home() {
 
           <div className="section-intro certification-intro">
             <h2>
-              Mes
-              <em>certifications</em>
+              Mes <em>certifications</em>
             </h2>
             <p>
               Des formations qui renforcent ma compréhension des usages

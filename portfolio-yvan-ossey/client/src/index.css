@@ -231,3 +231,25 @@ button, input, textarea { font:inherit; }
     height: 2.9rem;
   }
 }
+
+.certification-image-wrap {
+  width: 5.5rem;
+  height: 4.2rem;
+  overflow: hidden;
+  border: 1px solid rgba(155, 93, 229, .45);
+  background: var(--surface2);
+}
+
+.certification-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 560px) {
+  .certification-image-wrap {
+    width: 4.5rem;
+    height: 3.5rem;
+  }
+}
