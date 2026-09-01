@@ -455,12 +455,15 @@ export default function Home() {
           </div>
           <div className="about-grid">
             <div className="about-visual">
-              <div className="about-photo-frame">
-                <img src={profilePhoto} alt="Portrait de Yvan Ossey" />
-              </div>
+
               <h2>
                 Qui suis-<em>je ?</em>
               </h2>
+              
+              <div className="about-photo-frame">
+                <img src={profilePhoto} alt="Portrait de Yvan Ossey" />
+              </div>
+            
             </div>
 
             <div className="about-body">
