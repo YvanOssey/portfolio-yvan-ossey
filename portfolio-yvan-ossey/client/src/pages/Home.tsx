@@ -26,6 +26,7 @@ import numcertificationImage from "../assets/certification-sensibilisation-numer
 import cybercertificationImage from "../assets/certification-introduction-cybersecurite.png";
 import certificationImage from "../assets/certification-utilisation-ordi-equipementmobile.png";
 import fullcertificationImage from "../assets/certification-developpeur-fullstack.png";
+import vibecertificationImage from "../assets/certification-vibeathon.png";
 
 const cvUrl =
   "https://files.manuscdn.com/user_upload_by_module/session_file/310519663930880878/NKqnlJysDrvZbIct.pdf";
@@ -127,19 +128,30 @@ const projectSlug = (title: string) =>
     .replace(/(^-|-$)/g, "");
 
 const certifications = [
-
   {
-    name: "Introduction à la Cybersécurité",
-    issuer: "Cybastion IT Academy",
-    date: "10 juillet 2025",
-    image: cybercertificationImage,
+    name: "Certificat de participation — VIBEATHON 2026",
+    issuer: "VIBEATHON 2026",
+    date: "11 Juillet 2026 - CSCTICAO",
+    result: "Compétiteur",
+    Description:
+      "Participation à la première édition du VIBEATHON en tant que compétiteur au sein de l’équipe NeuroGhost",
+    image: vibecertificationImage,
   },
 
   {
-    name: "Sensibilisation au numérique",
-    issuer: "Cybastion IT Academy",
-    date: "11 juillet 2025",
-    image: numcertificationImage,
+    name: "Hack & Train « Ponts numériques »",
+    issuer: "Istorias Media",
+    date: "16–18 juin 2026",
+    result: "Lauréat",
+    description:
+      "Conception d’un prototype numérique favorisant la transmission du patrimoine culturel ivoirien à travers des proverbes, des contes audio et des défis interactifs adaptés aux différents groupes ethniques.",
+  },
+
+  {
+    name: "Full-Stack Development 101",
+    issuer: "Simplilearn",
+    date: "20 juin 2026",
+    image: fullcertificationImage,
   },
 
   {
@@ -150,12 +162,18 @@ const certifications = [
   },
 
   {
-    name: "Full-Stack Development 101",
-    issuer: "Simplilearn",
-    date: "20 juin 2026",
-    image: fullcertificationImage,
+    name: "Sensibilisation au numérique",
+    issuer: "Cybastion IT Academy",
+    date: "11 juillet 2025",
+    image: numcertificationImage,
   },
 
+  {
+    name: "Introduction à la Cybersécurité",
+    issuer: "Cybastion IT Academy",
+    date: "10 juillet 2025",
+    image: cybercertificationImage,
+  },
 ];
 
 const skillGroups = [
@@ -555,10 +573,16 @@ export default function Home() {
                 </div>
 
                 <div className="certification-content">
-                  <span className="certification-label">CERTIFICATION</span>
+                  <span className="certification-label">
+                    {certification.result}
+                  </span>
                   <h3>{certification.name}</h3>
-                  <p>{certification.issuer}</p>
+                  <p className="certification-issuer">{certification.issuer}</p>
+                  <p className="certification-description">
+                    {certification.description}
+                  </p>
                 </div>
+
                 <time dateTime="2025-07-11">{certification.date}</time>
               </article>
             ))}

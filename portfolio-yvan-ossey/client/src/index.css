@@ -253,3 +253,29 @@ button, input, textarea { font:inherit; }
     height: 3.5rem;
   }
 }
+
+.certification-issuer {
+  margin: 0 0 .65rem;
+  color: var(--grey);
+  font-size: .78rem;
+}
+
+.certification-description {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--grey);
+  font-size: .78rem;
+  line-height: 1.65;
+}
+
+.certification-label {
+  display: inline-block;
+  color: var(--violet);
+  font: 600 .58rem "JetBrains Mono", monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.certification-card:has(.certification-label:is(:first-child)) {
+  position: relative;
+}
