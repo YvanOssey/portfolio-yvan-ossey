@@ -467,7 +467,7 @@ export default function Home() {
               <small>Jean De Kenty</small>
             </h1>
             <p className="source-lead">
-              Étudiant en <b>Licence 2 MIAGE</b> · Développeur web et mobile.
+              Développeur web et mobile.
               <br />
               Je conçois des applications modernes, rapides et complètes.
             </p>
@@ -502,17 +502,7 @@ export default function Home() {
                 <span />
                 <span /> <em>yvan.dev</em>
               </div>
-              <pre>
-                <code>
-                  <i>const</i> developer = {"{"}
-                  <br /> name: <b>"Yvan Ossey"</b>,<br /> focus:{" "}
-                  <b>"useful products"</b>,<br /> stack: [<b>"React"</b>,{" "}
-                  <b>"Flutter"</b>],
-                  <br /> location: <b>"CI / Cocody, Riviera 4"</b>
-                  <br />
-                  {"}"};
-                </code>
-              </pre>
+              
             </div>
           </div>
           <a className="scroll-indicator" href="#about">
