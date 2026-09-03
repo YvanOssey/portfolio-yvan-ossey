@@ -47,7 +47,7 @@ const projects = [
     "TontinCi",
     "Gestion intelligente de tontines",
     "Application mobile pour créer, rejoindre et gérer des groupes, suivre les cotisations et consulter l’historique des transactions.",
-    ["Flutter", "Dart", "Supabase", "Iconsax","Git","GitHub","Figma"],
+    ["Flutter", "Dart", "Supabase", "Iconsax", "Git", "GitHub", "Figma"],
     "En cours",
     "",
     "https://github.com/YvanOssey/tontinci",
@@ -57,7 +57,7 @@ const projects = [
     "ChopTaResi CI",
     "Plateforme SaaS immobilière",
     "Solution de gestion des biens, résidences, locataires et paiements avec authentification JWT sécurisée.",
-    ["Node.js", "React", "MySQL", "JWT","Git","GitHub","Figma"],
+    ["Node.js", "React", "MySQL", "JWT", "Git", "GitHub", "Figma"],
     "En cours",
     "",
     "https://github.com/YvanOssey/resimanage-ci",
@@ -67,7 +67,7 @@ const projects = [
     "EduScan",
     "Gestion de scolarité",
     "Application mobile académique pour vérifier les paiements étudiants par scan de QR code et gérer les données via Supabase.",
-    ["Figma", "Flutter", "Supabase","Git","GitHub","Figma"],
+    ["Figma", "Flutter", "Supabase", "Git", "GitHub", "Figma"],
     "Académique",
     "",
     "https://github.com/YvanOssey/EduScan",
@@ -77,7 +77,7 @@ const projects = [
     "OBVX",
     "Boutique e-commerce",
     "Interface responsive avec catalogue dynamique, panier interactif et expérience d’achat claire.",
-    ["HTML5", "CSS3", "JavaScript","Git","GitHub","Figma"],
+    ["HTML5", "CSS3", "JavaScript", "Git", "GitHub", "Figma"],
     "Réalisé - En ligne",
     "https://obvx.vercel.app",
     "https://github.com/YvanOssey/obvx",
@@ -87,7 +87,7 @@ const projects = [
     "OBC & AEC",
     "Sites institutionnels sportifs",
     "Maquettes web responsives pour présenter les activités, équipes et événements de clubs sportifs.",
-    ["HTML5", "CSS3", "Formspree","Git","GitHub","Figma"],
+    ["HTML5", "CSS3", "Formspree", "Git", "GitHub", "Figma"],
     "Réalisé",
     "",
     "https://github.com/YvanOssey/Athl-tic-Elite-Club",
@@ -97,7 +97,17 @@ const projects = [
     "ClairDroit",
     "Blog juridique full-stack",
     "Blog juridique avec espace d’administration sécurisé, publication d’articles par rubrique, personnalisation éditoriale, stockage d’images Cloudflare R2, notifications Resend et déploiement Railway.",
-    ["React", "Node.js", "MySQL", "Railway", "Cloudflare R2", "Resend","Git","GitHub","Figma"],
+    [
+      "React",
+      "Node.js",
+      "MySQL",
+      "Railway",
+      "Cloudflare R2",
+      "Resend",
+      "Git",
+      "GitHub",
+      "Figma",
+    ],
     "Réalisé - En ligne",
     "https://clairdroit-production.up.railway.app/",
     "https://github.com/YvanOssey/clairdroit",
@@ -368,6 +378,7 @@ const skillGroups = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeCertification, setActiveCertification] = useState(0);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -403,6 +414,18 @@ export default function Home() {
       setSending(false);
     }
   }
+
+  const showPreviousCertification = () => {
+    setActiveCertification(current =>
+      current === 0 ? certifications.length - 1 : current - 1
+    );
+  };
+
+  const showNextCertification = () => {
+    setActiveCertification(current =>
+      current === certifications.length - 1 ? 0 : current + 1
+    );
+  };
 
   return (
     <div className="source-portfolio">
@@ -466,11 +489,19 @@ export default function Home() {
               <strong>Yvan</strong>
               <small>Jean De Kenty</small>
             </h1>
-            <p className="source-lead">
-              Développeur web et mobile.
-              <br />
-              Je conçois des applications modernes, rapides et complètes.
-            </p>
+            <div className="hero-positioning">
+              <h2>
+                Je développe des solutions digitales qui accompagnent votre
+                croissance.
+              </h2>
+              <p>
+                <b>Développeur web & mobile, orienté solutions full-stack.</b>{" "}
+                Je conçois des interfaces utiles, des applications performantes
+                et des expériences digitales adaptées aux besoins réels des
+                utilisateurs.
+              </p>
+            </div>
+
             <div className="source-actions">
               <a className="source-btn primary" href="#projects">
                 Voir mes projets <ArrowUpRight size={16} />
@@ -494,17 +525,17 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="hero-art">
-            <div className="art-orbit" />
-            <div className="art-card">
-              <div className="art-top">
-                <span />
-                <span />
-                <span /> <em>yvan.dev</em>
-              </div>
-              
+          <div className="hero-art hero-profile">
+            <div className="hero-profile-frame">
+              <img
+                src={profilePhoto}
+                alt="Portrait de Ossey Yvan Jean De Kenty"
+              />
             </div>
+            <div className="hero-profile-badge">WEB / MOBILE</div>
+            <div className="hero-profile-note">DESIGN · BUILD · SHIP</div>
           </div>
+
           <a className="scroll-indicator" href="#about">
             <span>SCROLL TO EXPLORE</span>
             <ArrowDown size={15} />
@@ -716,44 +747,86 @@ export default function Home() {
           className="source-section certifications-section"
         >
           <div className="source-label">
-            04 <span /> CERTIFICATIONS
+            03 <span /> CERTIFICATIONS
           </div>
 
           <div className="section-intro certification-intro">
             <h2>
-              Mes <em>certifications</em>
+              Mes
+              <em>certifications</em>
             </h2>
             <p>
-              Des formations qui renforcent ma compréhension des usages
-              numériques et ma capacité à accompagner des projets responsables.
+              Des expériences et des formations qui renforcent ma capacité à
+              concevoir des solutions numériques utiles et adaptées aux besoins
+              réels.
             </p>
           </div>
 
-          <div className="certification-list">
-            {certifications.map(certification => (
-              <article className="certification-card" key={certification.name}>
-                <div className="certification-image-wrap">
-                  <img
-                    className="certification-image"
-                    src={certification.image}
-                    alt={`Certificat ${certification.name}`}
-                  />
-                </div>
+          <div className="certification-carousel" aria-live="polite">
+            {certifications.map((certification, index) => {
+              const offset =
+                (index - activeCertification + certifications.length) %
+                certifications.length;
 
-                <div className="certification-content">
-                  <span className="certification-label">
-                    {certification.result}
-                  </span>
-                  <h3>{certification.name}</h3>
-                  <p className="certification-issuer">{certification.issuer}</p>
-                  <p className="certification-description">
-                    {certification.description}
-                  </p>
-                </div>
+              return (
+                <article
+                  className={`certification-slide certification-slide-${offset}`}
+                  key={certification.name}
+                  aria-hidden={index !== activeCertification}
+                >
+                  <div className="certification-slide-visual">
+                    {certification.image ? (
+                      <img
+                        src={certification.image}
+                        alt={`Certificat ${certification.name}`}
+                      />
+                    ) : (
+                      <div className="certification-placeholder">
+                        <Award size={48} />
+                        <span>Certificat</span>
+                      </div>
+                    )}
+                  </div>
 
-                <time dateTime="2025-07-11">{certification.date}</time>
-              </article>
-            ))}
+                  <div className="certification-slide-content">
+                    <span className="certification-label">
+                      {certification.result}
+                    </span>
+                    <h3>{certification.name}</h3>
+                    <p className="certification-issuer">
+                      {certification.issuer}
+                    </p>
+                    <p className="certification-description">
+                      {certification.description}
+                    </p>
+                    <time>{certification.date}</time>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="certification-controls">
+            <button
+              type="button"
+              className="certification-control"
+              onClick={showPreviousCertification}
+              aria-label="Certification précédente"
+            >
+              ←
+            </button>
+            <span>
+              {String(activeCertification + 1).padStart(2, "0")} /{" "}
+              {String(certifications.length).padStart(2, "0")}
+            </span>
+            <button
+              type="button"
+              className="certification-control"
+              onClick={showNextCertification}
+              aria-label="Certification suivante"
+            >
+              →
+            </button>
           </div>
         </section>
 
