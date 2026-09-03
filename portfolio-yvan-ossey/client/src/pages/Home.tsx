@@ -747,7 +747,7 @@ export default function Home() {
           className="source-section certifications-section"
         >
           <div className="source-label">
-            03 <span /> CERTIFICATIONS
+            04 <span /> CERTIFICATIONS
           </div>
 
           <div className="section-intro certification-intro">
