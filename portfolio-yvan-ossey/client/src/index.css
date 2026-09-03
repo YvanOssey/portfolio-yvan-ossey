@@ -420,5 +420,7 @@ button, input, textarea { font:inherit; }
 .certification-slide-content time {
   margin-top: 1.5rem;
   color: var(--grey2);
-  fo
+  font: 500 .65rem "JetBrains Mono", monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
 }
