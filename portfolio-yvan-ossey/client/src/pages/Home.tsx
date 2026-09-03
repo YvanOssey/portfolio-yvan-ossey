@@ -477,8 +477,10 @@ export default function Home() {
               
             </h1>
             <p className="source-lead">
-              <strong>Développeur Web & Mobile</strong><br />
-              Je conçois et développe des produits digitaux qui répondent à de vos besoins.
+              <strong>
+                Développeur Web & Mobile<br />
+                Je conçois et développe des produits digitaux qui répondent à de vos besoins.
+              </strong>
             </p>
 
 
