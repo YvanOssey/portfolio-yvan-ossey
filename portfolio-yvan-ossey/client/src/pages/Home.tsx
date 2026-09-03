@@ -474,15 +474,12 @@ export default function Home() {
             <h1>
               <span>Ossey</span>
               <strong>Yvan Jean De Kenty</strong>
-              
             </h1>
-            <p className="source-lead">
-              <strong>
-                Développeur Web & Mobile<br />
-                Je conçois et développe des produits digitaux qui répondent à de vos besoins.
-              </strong>
-            </p>
-
+            <h2 className="hero-hook">
+              Je conçois et développe
+              <span>des produits digitaux</span>
+              qui répondent à de vos besoins.
+            </h2>
 
             <div className="source-actions">
               <a className="source-btn primary" href="#projects">

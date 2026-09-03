@@ -332,3 +332,34 @@ button, input, textarea { font:inherit; }
 }
 
 
+.hero-hook {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--white);
+  font: 600 clamp(2.4rem, 6vw, 5.8rem) "Clash Display", sans-serif;
+  line-height: .95;
+  letter-spacing: -.065em;
+}
+
+.hero-hook span {
+  display: inline;
+  color: var(--cyan);
+  text-shadow: 0 0 2rem rgba(0, 255, 200, .2);
+}
+
+.hero-hook span::after {
+  content: "";
+  display: inline-block;
+  width: .7em;
+  height: .08em;
+  margin-left: .18em;
+  vertical-align: .15em;
+  background: var(--violet);
+  transform: skewX(-25deg);
+}
+
+@media (max-width: 560px) {
+  .hero-hook {
+    font-size: clamp(2.15rem, 11vw, 3.5rem);
+  }
+}
