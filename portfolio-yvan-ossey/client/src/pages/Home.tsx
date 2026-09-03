@@ -471,15 +471,14 @@ export default function Home() {
             <p className="source-kicker">
               DÉVELOPPEUR WEB & MOBILE · COCODY, RIVIERA 4 · CÔTE D’IVOIRE
             </p>
-            <h1>
-              <span>Ossey</span>
-              <strong>Yvan Jean De Kenty</strong>
-            </h1>
-            <h2 className="hero-hook">
+
+            <div className="hero-identity">OSSEY YVAN JEAN DE KENTY</div>
+
+            <h1 className="hero-hook">
               Je conçois et développe
               <span>des produits digitaux</span>
-              qui répondent à de vos besoins.
-            </h2>
+              qui répondent à de vrais besoins.
+            </h1>
 
             <div className="source-actions">
               <a className="source-btn primary" href="#projects">

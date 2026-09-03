@@ -363,3 +363,19 @@ button, input, textarea { font:inherit; }
     font-size: clamp(2.15rem, 11vw, 3.5rem);
   }
 }
+
+.hero-identity {
+  margin-bottom: 2rem;
+  color: var(--grey);
+  font: 500 .7rem "JetBrains Mono", monospace;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .hero-identity {
+    margin-bottom: 1.5rem;
+    font-size: .58rem;
+  }
+}
+
