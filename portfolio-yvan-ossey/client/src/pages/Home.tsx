@@ -378,7 +378,6 @@ const skillGroups = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeCertification, setActiveCertification] = useState(0);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -414,18 +413,6 @@ export default function Home() {
       setSending(false);
     }
   }
-
-  const showPreviousCertification = () => {
-    setActiveCertification(current =>
-      current === 0 ? certifications.length - 1 : current - 1
-    );
-  };
-
-  const showNextCertification = () => {
-    setActiveCertification(current =>
-      current === certifications.length - 1 ? 0 : current + 1
-    );
-  };
 
   return (
     <div className="source-portfolio">
@@ -489,18 +476,11 @@ export default function Home() {
               <strong>Yvan</strong>
               <small>Jean De Kenty</small>
             </h1>
-            <div className="hero-positioning">
-              <h2>
-                Je développe des solutions digitales qui accompagnent votre
-                croissance.
-              </h2>
-              <p>
-                <b>Développeur web & mobile, orienté solutions full-stack.</b>{" "}
-                Je conçois des interfaces utiles, des applications performantes
-                et des expériences digitales adaptées aux besoins réels des
-                utilisateurs.
-              </p>
-            </div>
+            <p className="source-lead">
+              Développeur web et mobile
+              Je conçois des applications modernes, rapides et
+              complètes.
+            </p>
 
             <div className="source-actions">
               <a className="source-btn primary" href="#projects">
@@ -524,16 +504,6 @@ export default function Home() {
                 <span>MIAGE</span>
               </div>
             </div>
-          </div>
-          <div className="hero-art hero-profile">
-            <div className="hero-profile-frame">
-              <img
-                src={profilePhoto}
-                alt="Portrait de Ossey Yvan Jean De Kenty"
-              />
-            </div>
-            <div className="hero-profile-badge">WEB / MOBILE</div>
-            <div className="hero-profile-note">DESIGN · BUILD · SHIP</div>
           </div>
 
           <a className="scroll-indicator" href="#about">
@@ -752,81 +722,39 @@ export default function Home() {
 
           <div className="section-intro certification-intro">
             <h2>
-              Mes
-              <em>certifications</em>
+              Mes <em>certifications</em>
             </h2>
             <p>
-              Des expériences et des formations qui renforcent ma capacité à
-              concevoir des solutions numériques utiles et adaptées aux besoins
-              réels.
+              Des formations qui renforcent ma compréhension des usages
+              numériques et ma capacité à accompagner des projets responsables.
             </p>
           </div>
 
-          <div className="certification-carousel" aria-live="polite">
-            {certifications.map((certification, index) => {
-              const offset =
-                (index - activeCertification + certifications.length) %
-                certifications.length;
+          <div className="certification-list">
+            {certifications.map(certification => (
+              <article className="certification-card" key={certification.name}>
+                <div className="certification-image-wrap">
+                  <img
+                    className="certification-image"
+                    src={certification.image}
+                    alt={`Certificat ${certification.name}`}
+                  />
+                </div>
 
-              return (
-                <article
-                  className={`certification-slide certification-slide-${offset}`}
-                  key={certification.name}
-                  aria-hidden={index !== activeCertification}
-                >
-                  <div className="certification-slide-visual">
-                    {certification.image ? (
-                      <img
-                        src={certification.image}
-                        alt={`Certificat ${certification.name}`}
-                      />
-                    ) : (
-                      <div className="certification-placeholder">
-                        <Award size={48} />
-                        <span>Certificat</span>
-                      </div>
-                    )}
-                  </div>
+                <div className="certification-content">
+                  <span className="certification-label">
+                    {certification.result}
+                  </span>
+                  <h3>{certification.name}</h3>
+                  <p className="certification-issuer">{certification.issuer}</p>
+                  <p className="certification-description">
+                    {certification.description}
+                  </p>
+                </div>
 
-                  <div className="certification-slide-content">
-                    <span className="certification-label">
-                      {certification.result}
-                    </span>
-                    <h3>{certification.name}</h3>
-                    <p className="certification-issuer">
-                      {certification.issuer}
-                    </p>
-                    <p className="certification-description">
-                      {certification.description}
-                    </p>
-                    <time>{certification.date}</time>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="certification-controls">
-            <button
-              type="button"
-              className="certification-control"
-              onClick={showPreviousCertification}
-              aria-label="Certification précédente"
-            >
-              ←
-            </button>
-            <span>
-              {String(activeCertification + 1).padStart(2, "0")} /{" "}
-              {String(certifications.length).padStart(2, "0")}
-            </span>
-            <button
-              type="button"
-              className="certification-control"
-              onClick={showNextCertification}
-              aria-label="Certification suivante"
-            >
-              →
-            </button>
+                <time dateTime="2025-07-11">{certification.date}</time>
+              </article>
+            ))}
           </div>
         </section>
 
