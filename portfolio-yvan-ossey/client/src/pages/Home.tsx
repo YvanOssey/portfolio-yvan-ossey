@@ -472,13 +472,14 @@ export default function Home() {
               DÉVELOPPEUR WEB & MOBILE · COCODY, RIVIERA 4 · CÔTE D’IVOIRE
             </p>
 
-            <div className="hero-identity">OSSEY YVAN JEAN DE KENTY</div>
+            <h1><span>Ossey</span><strong>Yvan</strong><small>Jean De Kenty</small></h1>
 
-            <h1 className="hero-hook">
-              Je conçois et développe
-              <span>des produits digitaux</span>
-              qui répondent à de vrais besoins.
-            </h1>
+
+            <p className="source-lead">
+              Développeur web & mobile.
+              Je conçois des applications modernes, rapides et
+              complètes.
+            </p>
 
             <div className="source-actions">
               <a className="source-btn primary" href="#projects">
