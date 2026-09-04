@@ -466,7 +466,7 @@ export default function Home() {
           <div className="hero-glow violet" />
           <div className="hero-copy">
             <div className="terminal">
-              <span>Yvan.</span>Dev
+              <span>Yvan.Dev</span>
             </div>
             <p className="source-kicker">
               DÉVELOPPEUR WEB & MOBILE · COCODY, RIVIERA 4 · CÔTE D’IVOIRE
