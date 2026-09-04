@@ -466,19 +466,20 @@ export default function Home() {
           <div className="hero-glow violet" />
           <div className="hero-copy">
             <div className="terminal">
-              <span>Yvan.</span>Dev <b />
+              <span>Yvan.</span>Dev
             </div>
             <p className="source-kicker">
               DÉVELOPPEUR WEB & MOBILE · COCODY, RIVIERA 4 · CÔTE D’IVOIRE
             </p>
 
-            <h1><span>Ossey</span><strong>Yvan</strong><small>Jean De Kenty</small></h1>
+            <h1><span>Ossey</span><strong>Yvan Jean De Kenty</strong></h1>
 
 
             <p className="source-lead">
-              Développeur web & mobile.
-              Je conçois des applications modernes, rapides et
-              complètes.
+              <strong>Développeur web & mobile.</strong><br />
+              Je conçois et développe
+              <span>des produits digitaux</span>
+              qui répondent à vos besoins.
             </p>
 
             <div className="source-actions">
