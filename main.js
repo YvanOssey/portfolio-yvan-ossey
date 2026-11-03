@@ -21,17 +21,29 @@ function setTheme(theme, save = true) {
     syncThemeUI();
   };
   if (save) { try { localStorage.setItem("theme", theme); } catch {} }
-  if (reduced || !document.startViewTransition) { apply(); return; }
+  if (reduced) { apply(); return; }
+  // Écran tactile, ou navigateur sans View Transitions : la page change de couleur en fondu, sans capture d'écran.
+  // (Sur Safari iOS, la transition par capture pouvait rester bloquée et le thème ne changeait pas.)
+  if (!document.startViewTransition || !matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    root.classList.add("theme-fade");
+    apply();
+    clearTimeout(setTheme.t);
+    setTheme.t = setTimeout(() => root.classList.remove("theme-fade"), 450);
+    return;
+  }
   // le nouveau thème s'ouvre en cercle depuis le bouton
   const r = themeBtn.getBoundingClientRect();
   const x = r.left + r.width / 2, y = r.top + r.height / 2;
   const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-  document.startViewTransition(apply).ready.then(() => {
+  const vt = document.startViewTransition(apply);
+  // filet de sécurité : si le navigateur ne lance jamais la transition, on applique quand même
+  setTimeout(() => { if (root.dataset.theme !== theme) { vt.skipTransition?.(); apply(); } }, 500);
+  vt.ready.then(() => {
     root.animate(
       { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
       { duration: 650, easing: "cubic-bezier(.65,0,.35,1)", pseudoElement: "::view-transition-new(root)" },
     );
-  });
+  }).catch(() => {});
 }
 themeBtn.addEventListener("click", () => setTheme(root.dataset.theme === "dark" ? "light" : "dark"));
 // sans choix enregistré, on suit le réglage du système
