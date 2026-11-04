@@ -12,12 +12,15 @@ src/
   main.tsx              démarrage de React
   App.tsx               navigation par ancre (#/projet/…) et transition « coup de surligneur »
   styles.css            toute la direction artistique (thèmes clair et sombre)
-  data/projects.ts      tout le contenu, typé : projets (Project) et compétences (SkillGroup)
+  data/content.json     tout le contenu modifiable (projets, compétences, parcours, contact)
+  data/schema.ts        types du contenu et validation (partagée avec l'API)
+  admin/                espace admin (#/admin), chargé seulement quand on l'ouvre
   lib/util.ts           petites aides partagées (numérotation, tampons, projets par techno)
   hooks/                useTheme (clair/sombre), useReveal / useHighlights (apparitions à l'écran)
   components/           Header (logo, menu, bouton de thème), Shot (capture d'un projet)
   sections/             Hero, Deck (fiches à lancer), Pile (rangée qui s'empile), Parcours, Stack (clavier), Contact (carte postale)
   pages/ProjectPage.tsx page détaillée d'un projet, avec zoom de la capture
+api/                    fonctions Vercel de l'admin : session.ts (connexion), content.ts (lecture / enregistrement)
 ```
 
 Les interactions continues (glisser-lancer des fiches, rangée pilotée par le défilement, frise) écrivent
@@ -33,14 +36,33 @@ npm run dev
 
 `npm run build` vérifie les types (`tsc`) puis produit le site dans `dist/` ; `npm run preview` le sert.
 
-## Ajouter un projet
+## Espace admin
 
-Ajouter un objet dans `PROJECTS` (`src/data/projects.ts`) : TypeScript signale tout champ manquant.
-Le champ `image` pointe vers une capture dans `public/img/` (avec `position` pour le cadrage et `alt`
-pour la description) ; `null` affiche une carte « capture à venir ». `roleTitle` (facultatif) précise
-le rôle dans la fiche technique. Les compteurs (09, « 01 / 09 »…) se mettent à jour tout seuls.
+Adresse : **https://yvanossey-dev.vercel.app/#/admin**. On y modifie les projets (textes, captures, ordre,
+ajout, suppression), les compétences, le parcours, l'accueil et le contact, et on remplace le CV.
 
-Penser aussi à la liste de secours `<noscript>` dans `index.html`.
+« Enregistrer et publier » valide le contenu, puis crée **un commit** sur `main` (content.json + fichiers envoyés) ;
+Vercel remet le site en ligne en une minute environ. Tout reste versionné dans Git : on peut revenir en arrière.
+
+Sécurité : mot de passe vérifié côté serveur, session par cookie signé (HttpOnly, Secure, SameSite=Strict, 8 h),
+requêtes d'écriture acceptées seulement depuis le site lui-même, contenu et fichiers validés (liens http(s)
+uniquement, JPEG pour les captures, PDF pour le CV), et le jeton GitHub ne quitte jamais le serveur.
+
+### Variables à définir sur Vercel (Settings → Environment Variables)
+
+| Nom | Valeur |
+| --- | --- |
+| `ADMIN_PASSWORD` | mot de passe de l'admin (12 caractères minimum) |
+| `SESSION_SECRET` | longue chaîne aléatoire (32 caractères minimum) |
+| `GITHUB_TOKEN` | jeton GitHub « fine-grained », limité à ce dépôt, permission **Contents : Read and write** |
+| `GITHUB_REPO` | facultatif, `YvanOssey/portfolio-yvan-ossey` par défaut |
+| `GITHUB_BRANCH` | facultatif, `main` par défaut |
+
+## Modifier le contenu à la main
+
+Tout est dans `src/data/content.json`. `npm run build` vérifie les types ; l'admin et l'API vérifient
+la forme du contenu avec `validateContent` (`src/data/schema.ts`). Les captures vont dans `public/img/`
+(après avoir remplacé une capture, changer son `?v=`). Penser aussi à la liste `<noscript>` de `index.html`.
 
 ## Déployer
 

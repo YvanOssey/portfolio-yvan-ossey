@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Deck } from "./Deck";
 import { pad, reduced, TOTAL } from "../lib/util";
+import { CONTENT } from "../data/projects";
 
 const CV = "cv/CV_Yvan_Ossey.pdf";
 
@@ -20,7 +21,7 @@ export function Hero() {
         <h1 className="headline">
           Je construis des <mark className="hl timed">applications</mark> qui règlent de <mark className="hl timed">vrais problèmes</mark> d’ici.
         </h1>
-        <p className="lede">Ossey Yvan, développeur full-stack web &amp; mobile. De la maquette Figma au déploiement — React / Next.js, Node.js, Flutter, Supabase.</p>
+        <p className="lede">{CONTENT.hero.lede}</p>
         <div className="hero-actions">
           <a className="btn" href={CV} target="_blank" rel="noopener">Voir mon CV <span aria-hidden="true">↗</span></a>
           <a className="text-link" href={CV} download="CV_Yvan_Ossey.pdf">Télécharger le PDF ↓</a>
