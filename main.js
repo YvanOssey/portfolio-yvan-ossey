@@ -1,4 +1,4 @@
-import { PROJECTS, SKILLS } from "./data.js?v=122";
+import { PROJECTS, SKILLS } from "./data.js?v=124";
 
 document.documentElement.classList.add("js");
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -36,6 +36,8 @@ function setTheme(theme, save = true) {
   const x = r.left + r.width / 2, y = r.top + r.height / 2;
   const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
   const vt = document.startViewTransition(apply);
+  vt.finished.catch(() => {});
+  vt.updateCallbackDone?.catch(() => {});
   // filet de sécurité : si le navigateur ne lance jamais la transition, on applique quand même
   setTimeout(() => { if (root.dataset.theme !== theme) { vt.skipTransition?.(); apply(); } }, 500);
   vt.ready.then(() => {
