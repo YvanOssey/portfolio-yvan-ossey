@@ -1,5 +1,5 @@
 // Connexion à l'espace admin : POST { password } ouvre une session, DELETE la ferme, GET dit si on est connecté.
-import { checkPassword, clearCookie, isAuthenticated, json, pause, sameOrigin, sessionCookie } from "./_lib/auth";
+import { checkPassword, clearCookie, isAuthenticated, json, pause, sameOrigin, sessionCookie } from "./_lib/auth.js";
 
 export async function GET(req: Request) {
   return json({ authenticated: isAuthenticated(req) });
