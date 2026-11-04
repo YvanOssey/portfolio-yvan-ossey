@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { PROJECTS } from "./data/projects";
 import { Header, Footer } from "./components/Header";
@@ -11,15 +11,19 @@ import { ProjectPage } from "./pages/ProjectPage";
 import { useHighlights } from "./hooks/useReveal";
 import { reduced } from "./lib/util";
 
-/** Vue affichée : l'accueil, ou la page d'un projet (#/projet/slug) */
-type View = { kind: "home" } | { kind: "project"; slug: string };
+// Chargé seulement quand on ouvre #/admin : les visiteurs ne téléchargent pas l'espace admin
+const AdminPage = lazy(() => import("./admin/AdminPage"));
+
+/** Vue affichée : l'accueil, la page d'un projet (#/projet/slug) ou l'espace admin (#/admin) */
+type View = { kind: "home" } | { kind: "admin" } | { kind: "project"; slug: string };
 
 const HOME_TITLE = "Yvan Ossey — Développeur web & mobile";
 const parseHash = (hash: string): View => {
+  if (/^#\/admin/.test(hash)) return { kind: "admin" };
   const m = hash.match(/^#\/projet\/([\w-]+)/);
   return m && PROJECTS.some((p) => p.slug === m[1]) ? { kind: "project", slug: m[1] } : { kind: "home" };
 };
-const sameView = (a: View, b: View) => a.kind === b.kind && (a.kind === "home" || a.slug === (b as typeof a).slug);
+const sameView = (a: View, b: View) => a.kind === b.kind && (a.kind !== "project" || a.slug === (b as typeof a).slug);
 
 function Home({ hidden }: { hidden: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -70,7 +74,7 @@ export default function App() {
         return;
       }
       current.current = next;
-      const title = next.kind === "project" ? PROJECTS.find((p) => p.slug === next.slug)!.title : "Yvan Ossey";
+      const title = next.kind === "project" ? PROJECTS.find((p) => p.slug === next.slug)!.title : next.kind === "admin" ? "Espace admin" : "Yvan Ossey";
       wipe(title, () => {
         // la nouvelle vue doit être dans le DOM avant de défiler vers une ancre
         flushSync(() => setView(next));
@@ -91,7 +95,7 @@ export default function App() {
   useEffect(() => {
     document.title = view.kind === "project"
       ? `${PROJECTS.find((p) => p.slug === view.slug)!.title} — Yvan Ossey`
-      : HOME_TITLE;
+      : view.kind === "admin" ? "Espace admin — Yvan Ossey" : HOME_TITLE;
   }, [view]);
 
   const project = view.kind === "project" ? PROJECTS.find((p) => p.slug === view.slug)! : null;
@@ -101,8 +105,13 @@ export default function App() {
       <a className="skip" href="#travail">Aller aux projets</a>
       <Header />
       {/* L'accueil reste monté (caché) pendant la lecture d'une fiche : on retrouve sa position au retour */}
-      <Home hidden={!!project} />
+      <Home hidden={view.kind !== "home"} />
       {project && <ProjectPage key={project.slug} project={project} />}
+      {view.kind === "admin" && (
+        <Suspense fallback={<main className="admin"><p className="ad-wait">Chargement…</p></main>}>
+          <AdminPage />
+        </Suspense>
+      )}
       <Footer />
       <div className="wipe" id="wipe" aria-hidden="true" ref={wipeRef}><span id="wipe-title" ref={wipeTitleRef} /></div>
     </>

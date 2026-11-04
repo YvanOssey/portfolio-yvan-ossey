@@ -2,9 +2,12 @@ import { useRef, useState, type FormEvent } from "react";
 import { useReveal } from "../hooks/useReveal";
 import { pause, reduced, type CSSVars } from "../lib/util";
 
-const EMAIL = "yvanossey6@gmail.com";
-const PHONE = "+2250767214818";
-const PHONE_LABEL = "+225 07 67 21 48 18";
+import { CONTENT } from "../data/projects";
+
+const C = CONTENT.contact;
+const EMAIL = C.email;
+const PHONE = C.phone;
+const PHONE_LABEL = C.phoneLabel;
 const CV = "cv/CV_Yvan_Ossey.pdf";
 
 const TYPES = ["un site vitrine", "une application web", "une application mobile", "une boutique en ligne", "un stage ou une alternance", "autre chose"];
@@ -120,7 +123,7 @@ function Postcard() {
         </div>
         <dl className="to">
           <dt>À</dt>
-          <dd><b>Yvan Ossey</b>Développeur full-stack<br />Cocody, Abidjan<br />Côte d’Ivoire</dd>
+          <dd><b>Yvan Ossey</b>Développeur full-stack<br />{C.city}<br />{C.country}</dd>
         </dl>
         <div className="pc-send">
           <button className="btn" type="submit" data-via="mail">Poster par e-mail →</button>
@@ -176,15 +179,15 @@ function AddressBook() {
         <span className="bk-tab" aria-hidden="true">in</span>
         <svg className="bk-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5" /><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.2c0-1.6 1-2.7 2.4-2.7s2.1 1 2.1 2.7V17" /></svg>
         <span className="bk-label">LinkedIn</span>
-        <a className="bk-val" href="https://linkedin.com/in/yvan-ossey" target="_blank" rel="noreferrer">in/yvan-ossey</a>
-        <span className="bk-acts"><a className="bk-act" href="https://linkedin.com/in/yvan-ossey" target="_blank" rel="noreferrer">Voir le profil ↗</a></span>
+        <a className="bk-val" href={C.linkedin} target="_blank" rel="noreferrer">{C.linkedinLabel}</a>
+        <span className="bk-acts"><a className="bk-act" href={C.linkedin} target="_blank" rel="noreferrer">Voir le profil ↗</a></span>
       </li>
       <li className="bk" style={tab(3, "42%", "3deg")}>
         <span className="bk-tab" aria-hidden="true">GH</span>
         <svg className="bk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg>
         <span className="bk-label">GitHub</span>
-        <a className="bk-val" href="https://github.com/YvanOssey" target="_blank" rel="noreferrer">@YvanOssey</a>
-        <span className="bk-acts"><a className="bk-act" href="https://github.com/YvanOssey" target="_blank" rel="noreferrer">Voir les dépôts ↗</a></span>
+        <a className="bk-val" href={C.github} target="_blank" rel="noreferrer">{C.githubLabel}</a>
+        <span className="bk-acts"><a className="bk-act" href={C.github} target="_blank" rel="noreferrer">Voir les dépôts ↗</a></span>
       </li>
       <li className="bk bk-cv" style={tab(4, "62%", "-2.5deg")}>
         <span className="bk-tab" aria-hidden="true">CV</span>

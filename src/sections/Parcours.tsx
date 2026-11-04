@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 import { useReveal } from "../hooks/useReveal";
 import { reduced, type CSSVars } from "../lib/util";
+import { CONTENT } from "../data/projects";
+import { Rich } from "../components/Rich";
+
+const P = CONTENT.parcours;
 
 /** Découpe un texte en mots numérotés : la citation s'écrit mot à mot (délai --w en CSS) */
 function Words({ text, from }: { text: string; from: number }) {
@@ -39,13 +43,7 @@ function Quote() {
   );
 }
 
-const QUALITIES = ["Autonome", "Autodidacte", "Rigoureux", "Créatif", "Curieux", "Esprit d’équipe"];
 const TILTS = [-3, 2, -1.5, 3.5, -2.5, 1.5];
-
-const FORMATION = [
-  { when: "2026 — 2027", what: "Licence 3 MIAGE", where: "Université Polytechnique de Bingerville" },
-  { when: "2023 — 2024", what: "Baccalauréat série D", where: "Lycée Municipal de Brobo" },
-];
 
 /** Frise de formation tracée au fil du défilement */
 function Timeline() {
@@ -72,7 +70,7 @@ function Timeline() {
     <div className="tl">
       <p className="label">Formation</p>
       <ol ref={list}>
-        {FORMATION.map((f) => <li key={f.what}><span>{f.when}</span><b>{f.what}</b><small>{f.where}</small></li>)}
+        {P.formation.map((f) => <li key={f.what}><span>{f.when}</span><b>{f.what}</b><small>{f.where}</small></li>)}
       </ol>
     </div>
   );
@@ -91,12 +89,9 @@ export function Parcours() {
       <div className="about-grid" ref={about}>
         <Quote />
         <div className="about-copy">
-          <p>Je m’appelle <b>Ossey Yvan Jean De Kenty</b>, étudiant en Licence 3 MIAGE à l’Université Polytechnique de Bingerville. Je conçois et livre des applications web et mobiles complètes, de la maquette Figma au déploiement.</p>
-          <p>Plusieurs de mes projets sont en production, et l’un d’eux, KoumanPlay, a remporté le 1<sup>er</sup> prix d’un hackathon en 2026. J’encadre aussi une équipe de développeurs bénévoles. Je cherche à mettre ces compétences au service de projets concrets en entreprise.</p>
+          {P.about.map((t, i) => <p key={i}><Rich text={t} /></p>)}
           <dl className="facts">
-            <div><dt>Basé à</dt><dd>Cocody, Abidjan</dd></div>
-            <div><dt>Rôle actuel</dt><dd>Resp. développeur full-stack</dd></div>
-            <div><dt>Langues</dt><dd>Français · Anglais (notions)</dd></div>
+            {P.facts.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}
           </dl>
         </div>
       </div>
@@ -105,15 +100,12 @@ export function Parcours() {
         <article className="xp">
           <p className="label">Expérience</p>
           <div className="xp-head">
-            <h3>Responsable Développeur Full-Stack</h3>
-            <span className="xp-date">2026 — aujourd’hui</span>
+            <h3>{P.experience.title}</h3>
+            <span className="xp-date">{P.experience.date}</span>
           </div>
-          <p className="xp-org">Ghostech · engagement bénévole</p>
+          <p className="xp-org">{P.experience.org}</p>
           <ul className="xp-list">
-            <li><b>Pilotage</b> analyse des besoins, conception des solutions, répartition des tâches et suivi des développements.</li>
-            <li><b>Développement</b> applications web et mobiles, outils internes et maintenance évolutive.</li>
-            <li><b>Qualité</b> bonnes pratiques, revues de code, tests et documentation.</li>
-            <li><b>Transmission</b> sessions de partage et accompagnement des développeurs débutants.</li>
+            {P.experience.items.map(([k, v]) => <li key={k}><b>{k}</b> {v}</li>)}
           </ul>
         </article>
 
@@ -122,15 +114,11 @@ export function Parcours() {
           <div className="tl">
             <p className="label">Certifications</p>
             <ul className="certs">
-              <li><b>Introduction à la cybersécurité</b><small>Cisco Networking Academy</small></li>
-              <li><b>Full-Stack Development 101</b><small>Simplilearn</small></li>
-              <li><b>Développement Front-End</b><small>NovaSavo</small></li>
-              <li><b>Hack &amp; Train « Ponts Numériques »</b><small>Istorias Media — 1<sup>er</sup> prix</small></li>
-              <li><b>Vibeathon 2026</b><small>Participation</small></li>
+              {P.certifications.map((c) => <li key={c.name}><b>{c.name}</b><small><Rich text={c.org} /></small></li>)}
             </ul>
           </div>
           <ul className="qualities" aria-label="Qualités">
-            {QUALITIES.map((q, i) => (
+            {P.qualities.map((q, i) => (
               <li key={q} style={{ "--q": i, "--rq": `${TILTS[i % TILTS.length]}deg` } as CSSVars}>{q}</li>
             ))}
           </ul>
@@ -140,7 +128,7 @@ export function Parcours() {
       <a className="cv-strip" href="cv/CV_Yvan_Ossey.pdf" target="_blank" rel="noopener">
         <span className="label">Le CV complet</span>
         <strong>Voir mon CV <span aria-hidden="true">↗</span></strong>
-        <small>PDF · 1 page · mis à jour en novembre 2026</small>
+        <small>PDF · 1 page · mis à jour en {P.cvUpdated}</small>
       </a>
     </section>
   );

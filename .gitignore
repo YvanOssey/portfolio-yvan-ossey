@@ -4,3 +4,10 @@ dist/
 .DS_Store
 Thumbs.db
 *.tsbuildinfo
+
+# Fichiers de l’assistant, jamais envoyés sur GitHub
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+.kilo/

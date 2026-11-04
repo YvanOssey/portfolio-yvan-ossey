@@ -1,0 +1,716 @@
+{
+  "hero": {
+    "lede": "Ossey Yvan, développeur full-stack web & mobile. De la maquette Figma au déploiement — React / Next.js, Node.js, Flutter, Supabase."
+  },
+  "projects": [
+    {
+      "slug": "koumanplay",
+      "kinds": [
+        "web",
+        "mobile"
+      ],
+      "title": "KoumanPlay",
+      "type": "Jeu mobile de transmission culturelle",
+      "status": "1er prix",
+      "year": "2026",
+      "short": "1er prix du Hack & Train 2026, incubé par la GIZ. Les jeunes apprennent les langues ivoiriennes en jouant, les aînés transmettent leur savoir.",
+      "image": {
+        "src": "img/koumanplay.jpg?v=2",
+        "caption": "Trois écrans de l’application en ligne : carte des langues, quiz en dioula et bibliothèque",
+        "position": "center",
+        "alt": "Écrans de KoumanPlay en ligne : carte des langues, quiz en dioula et bibliothèque des œuvres"
+      },
+      "site": "https://koumanplay.netlify.app/",
+      "intro": "Le jeune apprend, l’aîné transmet : une application Android et web pour garder vivantes les langues et la culture ivoiriennes.",
+      "description": "Sur une carte des langues (baoulé, bété, dioula, sénoufo), le joueur progresse des premiers mots jusqu’aux proverbes, avec des quiz audio enregistrés par des locuteurs natifs. Les aînés ont leur propre profil pour enregistrer des mots, des proverbes et des contes, vérifiés par l’équipe avant d’entrer dans le jeu. Le prototype compte déjà 41 mots et phrases en dioula, dont 28 avec la voix d’un locuteur, et a été testé par 15 personnes. Chaque contenu est validé par un référent culturel.",
+      "stack": [
+        "Flutter",
+        "Riverpod",
+        "Supabase",
+        "go_router",
+        "just_audio",
+        "record"
+      ],
+      "signature": "Le jeune apprend, l’aîné transmet.",
+      "audiences": "Les jeunes Ivoiriens de 15 à 24 ans, la diaspora qui veut renouer avec ses racines, et les aînés qui veulent transmettre leur langue.",
+      "features": [
+        "Carte des langues : baoulé, bété, dioula et sénoufo, des premiers mots aux proverbes",
+        "Quiz audio avec la voix de locuteurs natifs",
+        "XP, séries, badges et défis à relever avec quelqu’un d’une autre génération",
+        "Profil Aîné pour enregistrer des mots, des proverbes et des contes",
+        "Jeu sans inscription et hors ligne, progression synchronisée au retour du réseau"
+      ],
+      "architecture": [
+        [
+          "Application",
+          "Flutter — Android et web"
+        ],
+        [
+          "État",
+          "Riverpod"
+        ],
+        [
+          "Navigation",
+          "go_router"
+        ],
+        [
+          "Données & comptes",
+          "Supabase (session anonyme, puis compte e-mail)"
+        ],
+        [
+          "Audio",
+          "just_audio pour l’écoute, record pour les aînés"
+        ],
+        [
+          "Hors ligne",
+          "Contenu embarqué, synchronisation au retour du réseau"
+        ]
+      ],
+      "security": "Les aînés donnent leur accord avant tout enregistrement et choisissent d’afficher leur prénom ou de rester anonymes. Les enregistrements vont dans un espace privé et sont vérifiés par l’équipe avant publication.",
+      "roleTitle": "Chef de projet & développeur",
+      "role": "Chef de projet et développeur : conception de l’expérience, développement de l’application Flutter, intégration de Supabase, collecte des contenus avec les aînés et pitch devant le jury du Hack & Train 2026."
+    },
+    {
+      "slug": "gtech-summit",
+      "kinds": [
+        "fullstack",
+        "web"
+      ],
+      "title": "G-Tech Summit 2026",
+      "type": "Site officiel et billetterie",
+      "status": "En ligne",
+      "year": "2026",
+      "short": "Site de l’événement tech de Ghostech avec vente de pass en ligne, billets à QR code envoyés par e-mail et espace d’administration.",
+      "image": {
+        "src": "img/gtech.jpg",
+        "url": "summit.ghostech.tech",
+        "caption": "Page d’accueil du site en ligne",
+        "position": "left center",
+        "alt": "Page d’accueil du site G-Tech Summit 2026"
+      },
+      "site": "https://summit.ghostech.tech/",
+      "intro": "Le site officiel du G-Tech Summit 2026 — conférences, ateliers et IA à Abidjan — avec sa billetterie en ligne.",
+      "description": "Le site présente le programme de l’événement organisé par Ghostech et permet d’acheter son pass en ligne. Chaque billet est généré avec un QR code et envoyé par e-mail. Les réservations sont limitées dans le temps et protégées contre les abus, et un espace d’administration permet de suivre les ventes.",
+      "stack": [
+        "Next.js",
+        "Supabase",
+        "Zod",
+        "Nodemailer"
+      ],
+      "signature": "De la billetterie à l’entrée, sans file d’attente.",
+      "audiences": "Participants, intervenants et partenaires du G-Tech Summit, ainsi que l’équipe d’organisation de Ghostech.",
+      "features": [
+        "Vente de pass en ligne",
+        "Billets à QR code envoyés automatiquement par e-mail",
+        "Réservation limitée dans le temps",
+        "Protections anti-abus sur la billetterie",
+        "Espace d’administration pour suivre les ventes"
+      ],
+      "architecture": [
+        [
+          "Framework",
+          "Next.js"
+        ],
+        [
+          "Données",
+          "Supabase"
+        ],
+        [
+          "Validation",
+          "Zod"
+        ],
+        [
+          "E-mails",
+          "Nodemailer — billets à QR code"
+        ]
+      ],
+      "security": "Validation des données avec Zod, réservations à durée limitée et protections anti-abus sur la billetterie.",
+      "role": "Développement du site et de la billetterie dans le cadre de mon rôle de responsable développeur full-stack chez Ghostech."
+    },
+    {
+      "slug": "clairdroit",
+      "kinds": [
+        "fullstack",
+        "web"
+      ],
+      "title": "ClairDroit",
+      "type": "Blog juridique full-stack",
+      "status": "En ligne",
+      "year": "2026",
+      "short": "Blog juridique avec administration sécurisée, publication par rubrique, images sur Cloudflare R2, notifications Resend, hébergé gratuitement sur Render.",
+      "image": {
+        "src": "img/clairdroit.jpg?v=3",
+        "url": "clairdroit.onrender.com",
+        "caption": "Page d’accueil du site en ligne",
+        "position": "center top",
+        "alt": "Page d’accueil du blog juridique ClairDroit"
+      },
+      "site": "https://clairdroit.onrender.com/",
+      "github": "https://github.com/YvanOssey/clairdroit",
+      "intro": "Un espace éditorial juridique administrable, sécurisé et déployé pour publier au rythme du contenu.",
+      "description": "ClairDroit combine un espace d’administration sécurisé, la publication d’articles par rubrique, la personnalisation éditoriale, le stockage d’images sur Cloudflare R2 et les notifications Resend. Le site est hébergé sur Render, avec une base MySQL sur TiDB Serverless.",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "tRPC",
+        "MySQL",
+        "Drizzle ORM",
+        "Cloudflare R2",
+        "Resend",
+        "Render"
+      ],
+      "signature": "Le droit clair pour tous !",
+      "audiences": "Étudiants en droit, jeunes professionnels, entrepreneurs, salariés et lecteurs souhaitant mieux comprendre les règles qui encadrent leur vie personnelle ou professionnelle.",
+      "features": [
+        "Navigation éditoriale par univers : actualité, vulgarisation, analyses et carrières",
+        "Recherche d’articles et classement de chaque publication dans une seule rubrique",
+        "Espace d’administration avec brouillons, publication, archivage et corbeille restaurable",
+        "Personnalisation de l’identité éditoriale, des pages et des éléments de contact",
+        "Formulaire de contact et newsletter avec notifications email"
+      ],
+      "architecture": [
+        [
+          "Frontend",
+          "React 19, TypeScript, Tailwind CSS 4"
+        ],
+        [
+          "Composants",
+          "shadcn/ui, Radix UI, Lucide Icons"
+        ],
+        [
+          "Navigation & cache",
+          "Wouter, TanStack React Query"
+        ],
+        [
+          "API & serveur",
+          "tRPC 11, Express, Node.js"
+        ],
+        [
+          "Données",
+          "Drizzle ORM et MySQL"
+        ],
+        [
+          "Médias & e-mails",
+          "Cloudflare R2 (API S3) et Resend"
+        ],
+        [
+          "Build & tests",
+          "Vite, esbuild, Vitest"
+        ],
+        [
+          "Hébergement",
+          "Render + TiDB Serverless (MySQL)"
+        ]
+      ],
+      "security": "Authentification administrateur par sessions JWT, mots de passe hachés avec scrypt, validation serveur, liste d’emails autorisés, honeypot et confirmation renforcée avant suppression définitive.",
+      "role": "Conception de l’architecture, développement frontend et backend, modélisation MySQL, sécurisation de l’administration, intégration de R2 et Resend, tests, déploiement et accompagnement d’une utilisatrice non technique."
+    },
+    {
+      "slug": "story-s",
+      "kinds": [
+        "fullstack",
+        "web"
+      ],
+      "title": "Story’s",
+      "type": "Gestion de blanchisserie à domicile",
+      "status": "En ligne",
+      "year": "2026",
+      "short": "Application web pour gérer les collectes de linge, suivre les commandes, organiser les créneaux et coordonner l’activité d’une blanchisserie à domicile.",
+      "image": {
+        "src": "img/storys.jpg?v=2",
+        "url": "storys-blanchisserie.vercel.app",
+        "caption": "Page d’accueil du site en ligne",
+        "position": "center top",
+        "alt": "Page d’accueil du site Story’s"
+      },
+      "site": "https://storys-blanchisserie.vercel.app/",
+      "github": "https://github.com/YvanOssey/storys-blanchisserie",
+      "intro": "Une plateforme métier pour coordonner les collectes, les commandes et les tournées d’une blanchisserie à domicile.",
+      "description": "Story’s accompagne les particuliers dans la commande, le suivi et la livraison de leur linge, tout en donnant à l’équipe un espace privé pour piloter l’activité opérationnelle. Le paiement en ligne est prévu pour une phase ultérieure ; le fonctionnement actuel repose sur le paiement à la livraison.",
+      "stack": [
+        "React 19",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "tRPC",
+        "MySQL / TiDB",
+        "Drizzle ORM"
+      ],
+      "signature": "Du linge collecté à la livraison, chaque étape compte.",
+      "audiences": "Particuliers utilisant un service de lavage, repassage, collecte et livraison, ainsi que les administrateurs, responsables d’atelier et livreurs de Story’s.",
+      "features": [
+        "Parcours client avec commande réservée aux utilisateurs authentifiés",
+        "Suivi de commande selon six statuts et affichage des créneaux confirmés",
+        "Tableau de bord admin pour clients, commandes et paiements à encaisser",
+        "Organisation du planning, des livreurs, des tournées et des affectations",
+        "Cloche de notifications avec compteur, toast, lecture individuelle ou globale et suppression"
+      ],
+      "architecture": [
+        [
+          "Frontend",
+          "React 19, TypeScript, Vite et Tailwind CSS 4"
+        ],
+        [
+          "Composants",
+          "UI inspirée de shadcn/ui et Lucide Icons"
+        ],
+        [
+          "API",
+          "tRPC 11 et procédures client/admin"
+        ],
+        [
+          "Backend",
+          "Node.js, Express 4 et TypeScript"
+        ],
+        [
+          "Données",
+          "MySQL/TiDB, Drizzle ORM et migrations SQL"
+        ],
+        [
+          "Tests",
+          "Vitest, TypeScript, Vite et esbuild"
+        ]
+      ],
+      "security": "Sessions par cookies sécurisés, comptes clients dédiés, comptes administrateurs protégés par email/mot de passe avec whitelist et vérification des autorisations côté serveur.",
+      "role": "Conception du produit et de l’architecture, développement des parcours client et admin, modélisation des données, gestion des rôles, tests et préparation d’un déploiement indépendant avec Docker, Nginx, HTTPS et sauvegardes."
+    },
+    {
+      "slug": "tontinci",
+      "kinds": [
+        "mobile"
+      ],
+      "title": "TontinCi",
+      "type": "Gestion intelligente de tontines",
+      "status": "En cours",
+      "year": "2026",
+      "short": "Application mobile pour créer, rejoindre et gérer des groupes, suivre les cotisations et consulter l’historique des transactions.",
+      "image": {
+        "src": "img/tontinci.jpg",
+        "caption": "Logo de l’application",
+        "position": "center",
+        "alt": "Logo de l’application TontinCi"
+      },
+      "github": "https://github.com/YvanOssey/tontinci",
+      "intro": "Une application mobile pour simplifier la gestion quotidienne des tontines.",
+      "description": "TontinCi permet de créer ou rejoindre des groupes, de suivre les cotisations et de consulter l’historique des transactions dans une interface claire.",
+      "stack": [
+        "Flutter",
+        "Dart",
+        "Supabase",
+        "Iconsax"
+      ],
+      "signature": "Rendre la tontine plus simple à piloter.",
+      "audiences": "Membres de tontines, responsables de groupes et utilisateurs mobiles.",
+      "features": [
+        "Création et adhésion à des groupes",
+        "Suivi des cotisations et des échéances",
+        "Historique des transactions et vue synthétique du groupe"
+      ],
+      "architecture": [
+        [
+          "Mobile",
+          "Flutter et Dart"
+        ],
+        [
+          "Données",
+          "Supabase"
+        ],
+        [
+          "Interface",
+          "Iconsax et composants mobiles"
+        ],
+        [
+          "Conception",
+          "Parcours orientés actions fréquentes"
+        ]
+      ],
+      "role": "Conception des parcours, développement de l’application mobile, intégration des données et structuration de l’expérience de gestion."
+    },
+    {
+      "slug": "eduscan",
+      "kinds": [
+        "mobile"
+      ],
+      "title": "EduScan",
+      "type": "Gestion de scolarité",
+      "status": "Académique",
+      "year": "2025",
+      "short": "Application mobile qui vérifie les paiements étudiants par scan de QR code, avec données gérées via Supabase.",
+      "image": {
+        "src": "img/eduscan.jpg",
+        "caption": "Icône de l’application",
+        "position": "center",
+        "alt": "Icône de l’application EduScan"
+      },
+      "intro": "Une application de gestion de scolarité centrée sur la vérification rapide des paiements.",
+      "description": "EduScan utilise le scan de QR code pour vérifier les paiements étudiants et Supabase pour gérer les données de scolarité.",
+      "stack": [
+        "Figma",
+        "Flutter",
+        "Dart",
+        "Supabase"
+      ],
+      "signature": "Vérifier plus vite, gérer plus sereinement.",
+      "audiences": "Étudiants, établissements et équipes chargées du suivi de scolarité.",
+      "features": [
+        "Scan de QR code pour vérifier un paiement",
+        "Parcours étudiant prototypé avant développement",
+        "Gestion des données de scolarité avec Supabase"
+      ],
+      "architecture": [
+        [
+          "Prototype",
+          "Figma"
+        ],
+        [
+          "Mobile",
+          "Flutter et Dart"
+        ],
+        [
+          "Données",
+          "Supabase"
+        ],
+        [
+          "Usage",
+          "Parcours court et vérification rapide"
+        ]
+      ],
+      "role": "Conception du parcours, prototypage de l’interface, développement mobile et intégration de la gestion des données."
+    },
+    {
+      "slug": "obvx",
+      "kinds": [
+        "web"
+      ],
+      "title": "OBVX",
+      "type": "Boutique e-commerce",
+      "status": "Réalisé",
+      "year": "2025",
+      "short": "Interface responsive avec catalogue dynamique, panier interactif et expérience d’achat claire.",
+      "image": {
+        "src": "img/obvx.jpg",
+        "url": "obvx.vercel.app",
+        "caption": "Page d’accueil de la boutique en ligne",
+        "position": "center top",
+        "alt": "Page d’accueil de la boutique OBVX"
+      },
+      "github": "https://github.com/YvanOssey/obvx",
+      "intro": "Une expérience e-commerce responsive avec catalogue dynamique et panier interactif.",
+      "description": "OBVX présente des produits de façon structurée et propose une expérience d’achat adaptée aux différents formats d’écran.",
+      "stack": [
+        "HTML5",
+        "CSS3",
+        "JavaScript"
+      ],
+      "signature": "Faire passer le produit avant le bruit.",
+      "audiences": "Visiteurs mobiles et desktop à la recherche d’une expérience d’achat claire.",
+      "features": [
+        "Catalogue produit structuré",
+        "Panier interactif",
+        "Présentation responsive et lisible"
+      ],
+      "architecture": [
+        [
+          "Interface",
+          "HTML5 et CSS3"
+        ],
+        [
+          "Interactions",
+          "JavaScript ES6+"
+        ],
+        [
+          "Responsive",
+          "Adaptation multi-écrans"
+        ],
+        [
+          "Expérience",
+          "Navigation orientée conversion"
+        ]
+      ],
+      "role": "Conception de l’interface, développement des interactions, structuration du catalogue et optimisation responsive."
+    },
+    {
+      "slug": "obc-aec",
+      "kinds": [
+        "web"
+      ],
+      "title": "OBC & AEC",
+      "type": "Sites institutionnels sportifs",
+      "status": "Réalisé",
+      "year": "2025",
+      "short": "Maquettes web responsives pour présenter les activités, équipes et événements de clubs sportifs.",
+      "image": {
+        "src": "img/obc.jpg",
+        "url": "yvanossey.github.io/OBC",
+        "caption": "Maquette en ligne du site du club",
+        "position": "left top",
+        "alt": "Page d’accueil du site Olympic Basket Center"
+      },
+      "github": "https://github.com/YvanOssey/Athl-tic-Elite-Club",
+      "intro": "Des prototypes web responsives pour valoriser les activités et les équipes de clubs sportifs.",
+      "description": "Ces maquettes institutionnelles présentent les actualités, les activités, les équipes et les événements des clubs avec un parcours de contact simple.",
+      "stack": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Formspree"
+      ],
+      "signature": "Donner une présence digitale au collectif.",
+      "audiences": "Clubs sportifs, licenciés, supporters et partenaires.",
+      "features": [
+        "Présentation des équipes et des activités",
+        "Mise en avant des événements et actualités",
+        "Formulaire de contact pour les échanges avec le club"
+      ],
+      "architecture": [
+        [
+          "Interface",
+          "HTML5 et CSS3"
+        ],
+        [
+          "Interactions",
+          "JavaScript ES6+"
+        ],
+        [
+          "Contact",
+          "Formspree"
+        ],
+        [
+          "Responsive",
+          "Consultation mobile et desktop"
+        ]
+      ],
+      "role": "Conception des maquettes, développement des pages institutionnelles, intégration du formulaire et adaptation responsive."
+    },
+    {
+      "slug": "portfolio",
+      "kinds": [
+        "web"
+      ],
+      "title": "Portfolio",
+      "type": "Site personnel en carnet d’ingénieur",
+      "status": "En ligne",
+      "year": "2026",
+      "short": "Le site que vous parcourez : un carnet de travail qu’on manipule, avec des fiches à lancer, des projets qui s’empilent et un mode sombre, construit en React et TypeScript.",
+      "image": {
+        "src": "img/portfolio.jpg?v=1",
+        "url": "yvanossey-dev.vercel.app",
+        "caption": "Page d’accueil du site en ligne",
+        "position": "center top",
+        "alt": "Page d’accueil du portfolio de Yvan Ossey"
+      },
+      "site": "https://yvanossey-dev.vercel.app/",
+      "github": "https://github.com/YvanOssey/portfolio-yvan-ossey",
+      "intro": "Un portfolio qui se feuillette comme un carnet : on attrape les fiches, on fait défiler les projets, on tape sur le clavier de la stack.",
+      "description": "Plutôt qu’un modèle générique, le site reprend les codes d’un carnet de travail : papier quadrillé, surligneur, écriture manuscrite et tampons. Chaque section a son interaction : des fiches bristol qu’on lance, une rangée de projets qui s’empile au défilement, une stack présentée en clavier et un contact en carte postale. Le site est écrit en React et TypeScript : chaque interaction est un composant, et les fiches projets sont typées pour qu’aucune information ne manque à la mise en ligne.",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "CSS3",
+        "Vercel"
+      ],
+      "signature": "Un carnet qu’on feuillette plutôt qu’un CV qu’on lit.",
+      "audiences": "Recruteurs, clients et partenaires qui veulent découvrir mes projets, mon parcours, et me contacter rapidement.",
+      "features": [
+        "Fiches projets à attraper et à lancer, au doigt comme à la souris",
+        "Rangée de projets qui s’empile au défilement",
+        "Stack en clavier : chaque touche montre les projets qui l’utilisent",
+        "Contact en carte postale, envoyé par e-mail ou WhatsApp",
+        "Mode sombre, pages projet détaillées et version lisible sans JavaScript"
+      ],
+      "architecture": [
+        [
+          "Interface",
+          "React 19 et composants TypeScript"
+        ],
+        [
+          "Styles",
+          "CSS3 (variables, grilles, animations), mode sombre"
+        ],
+        [
+          "Interactions",
+          "Hooks React : glisser-lancer, défilement, observateurs"
+        ],
+        [
+          "Navigation",
+          "Routage par ancre et transitions entre pages"
+        ],
+        [
+          "Build",
+          "Vite, typage strict vérifié avant chaque mise en ligne"
+        ],
+        [
+          "Hébergement",
+          "Vercel, images compressées, cache et en-têtes de sécurité"
+        ]
+      ],
+      "role": "Direction artistique, conception des interactions, développement, captures des projets, logo et mise en ligne."
+    }
+  ],
+  "skills": [
+    {
+      "title": "Frontend",
+      "color": "#e0a127",
+      "items": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript ES6+",
+        "HTML5",
+        "CSS3"
+      ]
+    },
+    {
+      "title": "Mobile",
+      "color": "#5d84b6",
+      "items": [
+        "Flutter",
+        "Dart",
+        "Riverpod",
+        "Android Studio"
+      ]
+    },
+    {
+      "title": "Backend",
+      "color": "#c9481d",
+      "items": [
+        "Node.js",
+        "Express",
+        "tRPC",
+        "Supabase",
+        "Zod",
+        "Nodemailer",
+        "PHP",
+        "Python"
+      ]
+    },
+    {
+      "title": "Données & sécurité",
+      "color": "#2e6247",
+      "items": [
+        "MySQL",
+        "PostgreSQL",
+        "SQL",
+        "Drizzle ORM",
+        "JWT",
+        "Authentification sécurisée"
+      ]
+    },
+    {
+      "title": "Outils",
+      "color": "#9a5a3c",
+      "items": [
+        "Git",
+        "GitHub",
+        "Linux",
+        "Railway",
+        "Cloudflare R2",
+        "Resend",
+        "VMware",
+        "Figma",
+        "Canva",
+        "Pack Office"
+      ]
+    }
+  ],
+  "parcours": {
+    "about": [
+      "Je m’appelle **Ossey Yvan Jean De Kenty**, étudiant en Licence 3 MIAGE à l’Université Polytechnique de Bingerville. Je conçois et livre des applications web et mobiles complètes, de la maquette Figma au déploiement.",
+      "Plusieurs de mes projets sont en production, et l’un d’eux, KoumanPlay, a remporté le 1er prix d’un hackathon en 2026. J’encadre aussi une équipe de développeurs bénévoles. Je cherche à mettre ces compétences au service de projets concrets en entreprise."
+    ],
+    "facts": [
+      [
+        "Basé à",
+        "Cocody, Abidjan"
+      ],
+      [
+        "Rôle actuel",
+        "Resp. développeur full-stack"
+      ],
+      [
+        "Langues",
+        "Français · Anglais (notions)"
+      ]
+    ],
+    "experience": {
+      "title": "Responsable Développeur Full-Stack",
+      "date": "2026 — aujourd’hui",
+      "org": "Ghostech · engagement bénévole",
+      "items": [
+        [
+          "Pilotage",
+          "analyse des besoins, conception des solutions, répartition des tâches et suivi des développements."
+        ],
+        [
+          "Développement",
+          "applications web et mobiles, outils internes et maintenance évolutive."
+        ],
+        [
+          "Qualité",
+          "bonnes pratiques, revues de code, tests et documentation."
+        ],
+        [
+          "Transmission",
+          "sessions de partage et accompagnement des développeurs débutants."
+        ]
+      ]
+    },
+    "formation": [
+      {
+        "when": "2026 — 2027",
+        "what": "Licence 3 MIAGE",
+        "where": "Université Polytechnique de Bingerville"
+      },
+      {
+        "when": "2023 — 2024",
+        "what": "Baccalauréat série D",
+        "where": "Lycée Municipal de Brobo"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Introduction à la cybersécurité",
+        "org": "Cisco Networking Academy"
+      },
+      {
+        "name": "Full-Stack Development 101",
+        "org": "Simplilearn"
+      },
+      {
+        "name": "Développement Front-End",
+        "org": "NovaSavo"
+      },
+      {
+        "name": "Hack & Train « Ponts Numériques »",
+        "org": "Istorias Media — 1er prix"
+      },
+      {
+        "name": "Vibeathon 2026",
+        "org": "Participation"
+      }
+    ],
+    "qualities": [
+      "Autonome",
+      "Autodidacte",
+      "Rigoureux",
+      "Créatif",
+      "Curieux",
+      "Esprit d’équipe"
+    ],
+    "cvUpdated": "novembre 2026"
+  },
+  "contact": {
+    "email": "yvanossey6@gmail.com",
+    "phone": "+2250767214818",
+    "phoneLabel": "+225 07 67 21 48 18",
+    "linkedin": "https://linkedin.com/in/yvan-ossey",
+    "linkedinLabel": "in/yvan-ossey",
+    "github": "https://github.com/YvanOssey",
+    "githubLabel": "@YvanOssey",
+    "city": "Cocody, Abidjan",
+    "country": "Côte d’Ivoire"
+  }
+}
