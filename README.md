@@ -29,7 +29,7 @@ Sur Vercel, `vercel.json` désactive l'installation et la compilation (site stat
 et règle le cache : la page est toujours revalidée, les images et logos sont gardés une semaine.
 
 **Aperçu de partage** : `og-image.jpg` (1200 × 630) est déclarée dans les balises `og:` et `twitter:` de
-`index.html`, avec l'adresse `https://portfolio-yvandev.vercel.app`. Si le domaine change, remplacer cette
+`index.html`, avec l'adresse `https://yvanossey-dev.vercel.app`. Si le domaine change, remplacer cette
 adresse dans `index.html` (canonical, og:url, og:image, twitter:image).
 
 **Après chaque mise à jour de CSS ou de JS**, incrémenter le `?v=` de `styles.css`, `main.js` (dans
