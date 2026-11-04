@@ -27,306 +27,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Architects+Daughter&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=123" />
   <link rel="icon" href="logo/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="logo/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="logo/apple-touch-icon.png" />
 </head>
 <body>
-  <a class="skip" href="#travail">Aller aux projets</a>
-
-  <header class="bar">
-    <a class="mark" href="#/" aria-label="Accueil">
-      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-        <path class="lg-hl" d="M13.2 30.4 50.8 26l.8 1.6-.3 3.3.7 3.2-.6 3.1L15 41.4l-.9-1.8.4-3.4-.8-3.1z" />
-        <path class="lg-y" pathLength="1" d="M20.5 16.5c4 4.6 7.6 9.4 11.5 14.4M43.5 15.8c-4.2 5.4-7.6 10-11.5 15.1.3 5.2.2 10.3-.2 15.6" />
-        <path class="lg-o" pathLength="1" d="M41.5 7.6C53 10.4 60.2 21 58.2 33.8 56.1 47.6 43.6 58 29.4 57 15.8 56 5.6 45 6.4 31.4 7.2 18.4 18 7.4 31.6 6.9c5.6-.2 10.8 1.6 14.6 4.9" />
-      </svg>
-      <span class="mark-name">Yvan Ossey<span>/dev</span></span>
-    </a>
-    <nav aria-label="Navigation principale">
-      <a href="#travail"><i>01</i>Projets</a>
-      <a href="#parcours" class="hide-sm"><i>02</i>Parcours</a>
-      <a href="#stack" class="hide-sm"><i>03</i>Stack</a>
-      <a href="#contact"><i>04</i>Contact</a>
-    </nav>
-    <div class="bar-end">
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Mode sombre" aria-pressed="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <g class="rays"><path d="M12 1.8v2.4M12 19.8v2.4M1.8 12h2.4M19.8 12h2.4M4.8 4.8l1.7 1.7M17.5 17.5l1.7 1.7M4.8 19.2l1.7-1.7M17.5 6.5l1.7-1.7" /></g>
-          <circle class="core" cx="12" cy="12" r="4.6" />
-          <circle class="cut" cx="16.5" cy="7.5" r="5" />
-        </svg>
-      </button>
-      <a class="btn small cv-btn" href="cv/CV_Yvan_Ossey.pdf" target="_blank" rel="noopener">Voir mon CV <span aria-hidden="true">↗</span></a>
-    </div>
-  </header>
-
-  <div id="home">
-    <section class="hero" id="hero">
-      <div class="hero-copy">
-        <h1 class="headline">
-          Je construis des <mark class="hl">applications</mark> qui règlent de <mark class="hl">vrais problèmes</mark> d’ici.
-        </h1>
-        <p class="lede">Ossey Yvan, développeur full-stack web &amp; mobile. De la maquette Figma au déploiement — React / Next.js, Node.js, Flutter, Supabase.</p>
-        <div class="hero-actions">
-          <a class="btn" href="cv/CV_Yvan_Ossey.pdf" target="_blank" rel="noopener">Voir mon CV <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="cv/CV_Yvan_Ossey.pdf" download="CV_Yvan_Ossey.pdf">Télécharger le PDF ↓</a>
-        </div>
-        <dl class="ruler">
-          <div><dt>Projets</dt><dd>09</dd></div>
-          <div><dt>Formation</dt><dd>L3<small>MIAGE</small></dd></div>
-          <div><dt>Hackathon</dt><dd>1<sup>er</sup><small>prix</small></dd></div>
-        </dl>
-        <p class="margin-note" aria-hidden="true">
-          <span>attrapez une fiche<br />et lancez-la&nbsp;!</span>
-          <svg class="scribble" viewBox="0 0 130 70"><path pathLength="1" d="M4 52c18 14 52 16 78-2 14-10 24-24 30-38" /><path class="head" pathLength="1" d="M98 14l15-6 4 16" /></svg>
-        </p>
-      </div>
-
-      <div class="deck-zone" id="travail" aria-labelledby="deck-title">
-        <h2 id="deck-title" class="sr-only">Projets</h2>
-        <div class="deck" id="deck"></div>
-        <div class="deck-ctrl">
-          <button class="sq" id="prev" type="button" aria-label="Fiche précédente">←</button>
-          <p class="deck-count"><span id="deck-count">01 / 09</span></p>
-          <button class="sq" id="next" type="button" aria-label="Fiche suivante">→</button>
-        </div>
-      </div>
-    </section>
-
-    <noscript>
-      <section class="section nojs" aria-labelledby="nojs-title">
-        <header class="sec-head">
-          <p class="label">Projets</p>
-          <h2 id="nojs-title">Mes projets</h2>
-          <p class="sec-sub">Le site est plus vivant avec JavaScript activé. En attendant, voici l’essentiel.</p>
-        </header>
-        <ol class="nojs-list">
-          <li><b>KoumanPlay</b> — jeu mobile de transmission culturelle, 1<sup>er</sup> prix Hack &amp; Train 2026 · Flutter, Riverpod, Supabase · <a href="https://koumanplay.netlify.app/">voir le site</a></li>
-          <li><b>G-Tech Summit 2026</b> — site officiel et billetterie · Next.js, Supabase, Zod, Nodemailer · <a href="https://summit.ghostech.tech/">voir le site</a></li>
-          <li><b>ClairDroit</b> — blog juridique full-stack · React, Express, tRPC, MySQL · <a href="https://clairdroit.onrender.com/">voir le site</a></li>
-          <li><b>Story’s</b> — gestion de blanchisserie à domicile · React, TypeScript, Express, tRPC, MySQL · <a href="https://storys-blanchisserie.vercel.app/">voir le site</a></li>
-          <li><b>TontinCi</b> — gestion de tontines · Flutter, Supabase · <a href="https://github.com/YvanOssey/tontinci">GitHub</a></li>
-          <li><b>EduScan</b> — gestion de scolarité par QR code · Flutter, Supabase</li>
-          <li><b>OBVX</b> — boutique e-commerce · HTML, CSS, JavaScript · <a href="https://github.com/YvanOssey/obvx">GitHub</a></li>
-          <li><b>OBC &amp; AEC</b> — sites de clubs sportifs · HTML, CSS, JavaScript · <a href="https://github.com/YvanOssey/Athl-tic-Elite-Club">GitHub</a></li>
-          <li><b>Portfolio</b> — ce site, carnet d’ingénieur sans framework · HTML, CSS, JavaScript · <a href="https://github.com/YvanOssey/portfolio-yvan-ossey">GitHub</a></li>
-        </ol>
-        <p class="nojs-contact">Me contacter : <a href="mailto:yvanossey6@gmail.com">yvanossey6@gmail.com</a> · <a href="tel:+2250767214818">+225 07 67 21 48 18</a> · <a href="cv/CV_Yvan_Ossey.pdf">mon CV (PDF)</a></p>
-      </section>
-    </noscript>
-
-    <section class="pile" id="index" aria-labelledby="index-title">
-      <div class="pile-sticky">
-        <header class="pile-head">
-          <p class="label">§ 01 — Index</p>
-          <h2 id="index-title">Tous les projets, <mark class="hl">l’un sur l’autre</mark>.</h2>
-          <div class="pile-meta" aria-hidden="true"><span id="pile-count">01 / 09</span><span class="pile-bar"><i id="pile-bar"></i></span></div>
-        </header>
-        <ol class="pile-track" id="pile-track"></ol>
-      </div>
-    </section>
-
-    <section class="section about" id="parcours" aria-labelledby="parcours-title">
+  <!-- Le site est une application React (src/). Sans JavaScript, on garde l'essentiel lisible. -->
+  <noscript>
+    <section class="section nojs" aria-labelledby="nojs-title">
       <header class="sec-head">
-        <p class="label">§ 02 — Parcours</p>
-        <h2 id="parcours-title">Étudiant le jour, <mark class="hl">bâtisseur</mark> tout le temps.</h2>
+        <p class="label">Projets</p>
+        <h2 id="nojs-title">Mes projets</h2>
+        <p class="sec-sub">Le site est plus vivant avec JavaScript activé. En attendant, voici l’essentiel.</p>
       </header>
-      <div class="about-grid">
-        <blockquote class="pull">
-          Je pars toujours d’un <span class="scrib-u">vrai besoin<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 8c40-5 90-6 196-3" /></svg></span>, je prends le temps de le comprendre avant d’écrire une ligne de code, et je ne m’arrête que lorsque l’application sert vraiment à quelqu’un.
-        </blockquote>
-        <div class="about-copy">
-          <p>Je m’appelle <b>Ossey Yvan Jean De Kenty</b>, étudiant en Licence 3 MIAGE à l’Université Polytechnique de Bingerville. Je conçois et livre des applications web et mobiles complètes, de la maquette Figma au déploiement.</p>
-          <p>Plusieurs de mes projets sont en production, et l’un d’eux, KoumanPlay, a remporté le 1<sup>er</sup> prix d’un hackathon en 2026. J’encadre aussi une équipe de développeurs bénévoles. Je cherche à mettre ces compétences au service de projets concrets en entreprise.</p>
-          <dl class="facts">
-            <div><dt>Basé à</dt><dd>Cocody, Abidjan</dd></div>
-            <div><dt>Rôle actuel</dt><dd>Resp. développeur full-stack</dd></div>
-            <div><dt>Langues</dt><dd>Français · Anglais (notions)</dd></div>
-          </dl>
-        </div>
-      </div>
-
-      <div class="cv-grid">
-        <article class="xp">
-          <p class="label">Expérience</p>
-          <div class="xp-head">
-            <h3>Responsable Développeur Full-Stack</h3>
-            <span class="xp-date">2026 — aujourd’hui</span>
-          </div>
-          <p class="xp-org">Ghostech · engagement bénévole</p>
-          <ul class="xp-list">
-            <li><b>Pilotage</b> analyse des besoins, conception des solutions, répartition des tâches et suivi des développements.</li>
-            <li><b>Développement</b> applications web et mobiles, outils internes et maintenance évolutive.</li>
-            <li><b>Qualité</b> bonnes pratiques, revues de code, tests et documentation.</li>
-            <li><b>Transmission</b> sessions de partage et accompagnement des développeurs débutants.</li>
-          </ul>
-        </article>
-
-        <div class="cv-side">
-          <div class="tl">
-            <p class="label">Formation</p>
-            <ol>
-              <li><span>2026 — 2027</span><b>Licence 3 MIAGE</b><small>Université Polytechnique de Bingerville</small></li>
-              <li><span>2023 — 2024</span><b>Baccalauréat série D</b><small>Lycée Municipal de Brobo</small></li>
-            </ol>
-          </div>
-          <div class="tl">
-            <p class="label">Certifications</p>
-            <ul class="certs">
-              <li><b>Introduction à la cybersécurité</b><small>Cisco Networking Academy</small></li>
-              <li><b>Full-Stack Development 101</b><small>Simplilearn</small></li>
-              <li><b>Développement Front-End</b><small>NovaSavo</small></li>
-              <li><b>Hack &amp; Train « Ponts Numériques »</b><small>Istorias Media — 1<sup>er</sup> prix</small></li>
-              <li><b>Vibeathon 2026</b><small>Participation</small></li>
-            </ul>
-          </div>
-          <ul class="qualities" aria-label="Qualités">
-            <li>Autonome</li><li>Autodidacte</li><li>Rigoureux</li><li>Créatif</li><li>Curieux</li><li>Esprit d’équipe</li>
-          </ul>
-        </div>
-      </div>
-
-      <a class="cv-strip" href="cv/CV_Yvan_Ossey.pdf" target="_blank" rel="noopener">
-        <span class="label">Le CV complet</span>
-        <strong>Voir mon CV <span aria-hidden="true">↗</span></strong>
-        <small>PDF · 1 page · mis à jour en novembre 2026</small>
-      </a>
+      <ol class="nojs-list">
+        <li><b>KoumanPlay</b> — jeu mobile de transmission culturelle, 1<sup>er</sup> prix Hack &amp; Train 2026 · Flutter, Riverpod, Supabase · <a href="https://koumanplay.netlify.app/">voir le site</a></li>
+        <li><b>G-Tech Summit 2026</b> — site officiel et billetterie · Next.js, Supabase, Zod, Nodemailer · <a href="https://summit.ghostech.tech/">voir le site</a></li>
+        <li><b>ClairDroit</b> — blog juridique full-stack · React, Express, tRPC, MySQL · <a href="https://clairdroit.onrender.com/">voir le site</a></li>
+        <li><b>Story’s</b> — gestion de blanchisserie à domicile · React, TypeScript, Express, tRPC, MySQL · <a href="https://storys-blanchisserie.vercel.app/">voir le site</a></li>
+        <li><b>TontinCi</b> — gestion de tontines · Flutter, Supabase · <a href="https://github.com/YvanOssey/tontinci">GitHub</a></li>
+        <li><b>EduScan</b> — gestion de scolarité par QR code · Flutter, Supabase</li>
+        <li><b>OBVX</b> — boutique e-commerce · HTML, CSS, JavaScript · <a href="https://github.com/YvanOssey/obvx">GitHub</a></li>
+        <li><b>OBC &amp; AEC</b> — sites de clubs sportifs · HTML, CSS, JavaScript · <a href="https://github.com/YvanOssey/Athl-tic-Elite-Club">GitHub</a></li>
+        <li><b>Portfolio</b> — ce site, carnet d’ingénieur · React, TypeScript, Vite · <a href="https://github.com/YvanOssey/portfolio-yvan-ossey">GitHub</a></li>
+      </ol>
+      <p class="nojs-contact">Me contacter : <a href="mailto:yvanossey6@gmail.com">yvanossey6@gmail.com</a> · <a href="tel:+2250767214818">+225 07 67 21 48 18</a> · <a href="cv/CV_Yvan_Ossey.pdf">mon CV (PDF)</a></p>
     </section>
-
-    <section class="section stack" id="stack" aria-labelledby="stack-title">
-      <header class="sec-head">
-        <p class="label">§ 03 — Stack</p>
-        <h2 id="stack-title">Mes outils, <mark class="hl">touche par touche</mark>.</h2>
-        <p class="sec-sub">Appuyez sur une touche pour voir dans quels projets je l’ai utilisée.</p>
-      </header>
-      <div class="kb-wrap">
-        <div class="keyboard" id="keyboard"></div>
-        <aside class="usage" id="usage" aria-live="polite"></aside>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <header class="sec-head">
-        <p class="label">§ 04 — Contact</p>
-        <h2 id="contact-title">Écrivez-moi, <mark class="hl">je réponds sous 24 h</mark>.</h2>
-        <p class="sec-sub">Complétez la carte : le message est déjà presque écrit.</p>
-      </header>
-
-      <form class="postcard" id="postcard" novalidate>
-        <div class="pc-letter">
-          <p class="hello">Bonjour Yvan,</p>
-          <p class="line">
-            Je m’appelle
-            <label class="blank"><span class="sr-only">Votre nom</span><input name="name" required autocomplete="name" placeholder="votre nom" size="12" /></label>
-            et je vous écris pour
-            <label class="blank select"><span class="sr-only">Type de projet</span>
-              <select name="type">
-                <option value="">un projet…</option>
-                <option>un site vitrine</option>
-                <option>une application web</option>
-                <option>une application mobile</option>
-                <option>une boutique en ligne</option>
-                <option>un stage ou une alternance</option>
-                <option>autre chose</option>
-              </select>
-            </label>.
-            Idéalement, ce serait pour
-            <label class="blank select"><span class="sr-only">Délai</span>
-              <select name="when">
-                <option value="">quand ?</option>
-                <option>dès que possible</option>
-                <option>ce mois-ci</option>
-                <option>dans 2 à 3 mois</option>
-                <option>sans date précise</option>
-              </select>
-            </label>.
-          </p>
-          <label class="ruled"><span class="sr-only">Votre message</span><textarea name="msg" rows="4" placeholder="Voici l’idée en quelques mots…"></textarea></label>
-          <p class="line">
-            Vous pouvez me répondre à
-            <label class="blank"><span class="sr-only">Votre e-mail</span><input name="email" type="email" autocomplete="email" placeholder="votre e-mail" size="18" /></label>.
-          </p>
-          <p class="bye">À très vite&nbsp;!</p>
-          <p class="pc-error" id="pc-error" role="alert"></p>
-        </div>
-
-        <div class="pc-address">
-          <div class="stamp-box" aria-hidden="true">
-            <div class="postage"><span class="pg-mark">Y</span><span class="pg-val">CI · 2026</span></div>
-            <div class="postmark" id="postmark"><span>ABIDJAN</span><b>ENVOYÉ</b><span>2026</span></div>
-          </div>
-          <dl class="to">
-            <dt>À</dt>
-            <dd><b>Yvan Ossey</b>Développeur full-stack<br />Cocody, Abidjan<br />Côte d’Ivoire</dd>
-          </dl>
-          <div class="pc-send">
-            <button class="btn" type="submit" data-via="mail">Poster par e-mail →</button>
-            <button class="btn alt" type="submit" data-via="wa">Par WhatsApp →</button>
-          </div>
-        </div>
-      </form>
-
-      <p class="label book-label">Ou directement</p>
-      <ul class="book" aria-label="Me joindre directement">
-        <li class="bk bk-wide" style="--i:0; --tab:18px; --r:-3deg">
-          <span class="bk-tab" aria-hidden="true">@</span>
-          <svg class="bk-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5" /><path d="M3.5 6.5 12 13l8.5-6.5" /></svg>
-          <span class="bk-label">E-mail</span>
-          <a class="bk-val" href="mailto:yvanossey6@gmail.com">yvanossey6@gmail.com</a>
-          <span class="bk-acts">
-            <button class="bk-act" type="button" data-copy="yvanossey6@gmail.com">Copier</button>
-            <a class="bk-act" href="mailto:yvanossey6@gmail.com">Écrire ↗</a>
-          </span>
-        </li>
-        <li class="bk bk-wide" style="--i:1; --tab:30%; --r:2deg">
-          <span class="bk-tab" aria-hidden="true">☎</span>
-          <svg class="bk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 3.5h3.2l1.8 4.6-2.3 1.4a11 11 0 0 0 6.3 6.3l1.4-2.3 4.6 1.8v3.2a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 4 5.1a1.5 1.5 0 0 1 1.5-1.6z" /></svg>
-          <span class="bk-label">Téléphone</span>
-          <a class="bk-val" href="tel:+2250767214818">+225 07 67 21 48 18</a>
-          <span class="bk-acts">
-            <a class="bk-act" href="tel:+2250767214818">Appeler</a>
-            <a class="bk-act" href="https://wa.me/2250767214818" target="_blank" rel="noreferrer">WhatsApp ↗</a>
-          </span>
-        </li>
-        <li class="bk" style="--i:2; --tab:18px; --r:-2deg">
-          <span class="bk-tab" aria-hidden="true">in</span>
-          <svg class="bk-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5" /><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.2c0-1.6 1-2.7 2.4-2.7s2.1 1 2.1 2.7V17" /></svg>
-          <span class="bk-label">LinkedIn</span>
-          <a class="bk-val" href="https://linkedin.com/in/yvan-ossey" target="_blank" rel="noreferrer">in/yvan-ossey</a>
-          <span class="bk-acts"><a class="bk-act" href="https://linkedin.com/in/yvan-ossey" target="_blank" rel="noreferrer">Voir le profil ↗</a></span>
-        </li>
-        <li class="bk" style="--i:3; --tab:42%; --r:3deg">
-          <span class="bk-tab" aria-hidden="true">GH</span>
-          <svg class="bk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg>
-          <span class="bk-label">GitHub</span>
-          <a class="bk-val" href="https://github.com/YvanOssey" target="_blank" rel="noreferrer">@YvanOssey</a>
-          <span class="bk-acts"><a class="bk-act" href="https://github.com/YvanOssey" target="_blank" rel="noreferrer">Voir les dépôts ↗</a></span>
-        </li>
-        <li class="bk bk-cv" style="--i:4; --tab:62%; --r:-2.5deg">
-          <span class="bk-tab" aria-hidden="true">CV</span>
-          <svg class="bk-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8.5L19 7.5V21H6z" /><path d="M14 3v5h5M9 12.5h7M9 16h7" /></svg>
-          <span class="bk-label">CV · PDF</span>
-          <a class="bk-val" href="cv/CV_Yvan_Ossey.pdf" target="_blank" rel="noopener">Mon CV</a>
-          <span class="bk-acts">
-            <a class="bk-act" href="cv/CV_Yvan_Ossey.pdf" target="_blank" rel="noopener">Ouvrir ↗</a>
-            <a class="bk-act" href="cv/CV_Yvan_Ossey.pdf" download="CV_Yvan_Ossey.pdf">Télécharger ↓</a>
-          </span>
-        </li>
-      </ul>
-    </section>
-  </div>
-
-  <main id="detail" class="detail" hidden></main>
-
-  <footer class="foot">
-    <span>© 2026 Ossey Yvan Jean De Kenty</span>
-    <a href="#hero">Haut de page ↑</a>
-  </footer>
-
-  <div class="wipe" id="wipe" aria-hidden="true"><span id="wipe-title"></span></div>
-
-  <script type="module" src="main.js?v=124"></script>
+  </noscript>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
