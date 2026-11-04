@@ -1,5 +1,47 @@
 // Contenu du portfolio — aligné sur le CV v3 (novembre 2026).
-// `image` : capture réelle du projet (dossier img/). null = carte « capture à venir ».
+// `image` : capture réelle du projet (dossier public/img/). Absente = carte « capture à venir ».
+
+export type ProjectKind = "web" | "mobile" | "fullstack";
+export type ProjectStatus = "1er prix" | "En ligne" | "En cours" | "Académique" | "Réalisé";
+
+export interface ProjectImage {
+  src: string;
+  /** Adresse affichée dans la fenêtre de navigateur dessinée (sites uniquement) */
+  url?: string;
+  caption?: string;
+  position: string;
+  alt: string;
+}
+
+export interface Project {
+  slug: string;
+  kinds: ProjectKind[];
+  title: string;
+  type: string;
+  status: ProjectStatus;
+  year: string;
+  short: string;
+  image?: ProjectImage | null;
+  site?: string;
+  github?: string;
+  intro: string;
+  description: string;
+  stack: string[];
+  signature: string;
+  audiences: string;
+  features: string[];
+  architecture: [label: string, value: string][];
+  security?: string;
+  role: string;
+  /** Rôle précis affiché dans la fiche technique, si différent de « développeur » */
+  roleTitle?: string;
+}
+
+export interface SkillGroup {
+  title: string;
+  color: string;
+  items: string[];
+}
 
 const T = {
   ink: "#17140f",
@@ -10,9 +52,9 @@ const T = {
   cotton: "#efe7d6",
   clay: "#9a5a3c",
   sky: "#5d84b6",
-};
+} as const;
 
-export const PROJECTS = [
+export const PROJECTS: Project[] = [
   {
     slug: "koumanplay",
     kinds: ["web", "mobile"],
@@ -178,22 +220,22 @@ export const PROJECTS = [
     type: "Site personnel en carnet d’ingénieur",
     status: "En ligne",
     year: "2026",
-    short: "Le site que vous parcourez : un carnet de travail qu’on manipule, avec des fiches à lancer, des projets qui s’empilent et un mode sombre, sans aucun framework.",
+    short: "Le site que vous parcourez : un carnet de travail qu’on manipule, avec des fiches à lancer, des projets qui s’empilent et un mode sombre, construit en React et TypeScript.",
     image: { src: "img/portfolio.jpg?v=1", url: "yvanossey-dev.vercel.app", caption: "Page d’accueil du site en ligne", position: "center top", alt: "Page d’accueil du portfolio de Yvan Ossey" },
     site: "https://yvanossey-dev.vercel.app/",
     github: "https://github.com/YvanOssey/portfolio-yvan-ossey",
     intro: "Un portfolio qui se feuillette comme un carnet : on attrape les fiches, on fait défiler les projets, on tape sur le clavier de la stack.",
-    description: "Plutôt qu’un modèle générique, le site reprend les codes d’un carnet de travail : papier quadrillé, surligneur, écriture manuscrite et tampons. Chaque section a son interaction : des fiches bristol qu’on lance, une rangée de projets qui s’empile au défilement, une stack présentée en clavier et un contact en carte postale. Le tout tient en HTML, CSS et JavaScript, sans framework ni étape de build.",
-    stack: ["HTML5", "CSS3", "JavaScript ES6+", "Vercel"],
+    description: "Plutôt qu’un modèle générique, le site reprend les codes d’un carnet de travail : papier quadrillé, surligneur, écriture manuscrite et tampons. Chaque section a son interaction : des fiches bristol qu’on lance, une rangée de projets qui s’empile au défilement, une stack présentée en clavier et un contact en carte postale. Le site est écrit en React et TypeScript : chaque interaction est un composant, et les fiches projets sont typées pour qu’aucune information ne manque à la mise en ligne.",
+    stack: ["React", "TypeScript", "Vite", "CSS3", "Vercel"],
     signature: "Un carnet qu’on feuillette plutôt qu’un CV qu’on lit.",
     audiences: "Recruteurs, clients et partenaires qui veulent découvrir mes projets, mon parcours, et me contacter rapidement.",
     features: ["Fiches projets à attraper et à lancer, au doigt comme à la souris", "Rangée de projets qui s’empile au défilement", "Stack en clavier : chaque touche montre les projets qui l’utilisent", "Contact en carte postale, envoyé par e-mail ou WhatsApp", "Mode sombre, pages projet détaillées et version lisible sans JavaScript"],
-    architecture: [["Interface", "HTML5 et CSS3 (variables, grilles, animations)"], ["Interactions", "JavaScript ES6+ en modules, sans framework"], ["Navigation", "Routage par ancre et transitions entre pages"], ["Hébergement", "Vercel, site statique sans build"], ["Performance", "Images compressées, cache et en-têtes de sécurité"]],
+    architecture: [["Interface", "React 19 et composants TypeScript"], ["Styles", "CSS3 (variables, grilles, animations), mode sombre"], ["Interactions", "Hooks React : glisser-lancer, défilement, observateurs"], ["Navigation", "Routage par ancre et transitions entre pages"], ["Build", "Vite, typage strict vérifié avant chaque mise en ligne"], ["Hébergement", "Vercel, images compressées, cache et en-têtes de sécurité"]],
     role: "Direction artistique, conception des interactions, développement, captures des projets, logo et mise en ligne.",
   },
 ];
 
-export const SKILLS = [
+export const SKILLS: SkillGroup[] = [
   { title: "Frontend", color: T.gold, items: ["React", "Next.js", "TypeScript", "JavaScript ES6+", "HTML5", "CSS3"] },
   { title: "Mobile", color: T.sky, items: ["Flutter", "Dart", "Riverpod", "Android Studio"] },
   { title: "Backend", color: T.rust, items: ["Node.js", "Express", "tRPC", "Supabase", "Zod", "Nodemailer", "PHP", "Python"] },
