@@ -10,6 +10,7 @@ import { Contact } from "./sections/Contact";
 import { ProjectPage } from "./pages/ProjectPage";
 import { useHighlights } from "./hooks/useReveal";
 import { reduced } from "./lib/util";
+import { track } from "./lib/track";
 
 // Chargé seulement quand on ouvre #/admin : les visiteurs ne téléchargent pas l'espace admin
 const AdminPage = lazy(() => import("./admin/AdminPage"));
@@ -74,6 +75,7 @@ export default function App() {
         return;
       }
       current.current = next;
+      if (next.kind === "project") track({ type: "project", slug: next.slug });
       const title = next.kind === "project" ? PROJECTS.find((p) => p.slug === next.slug)!.title : next.kind === "admin" ? "Espace admin" : "Yvan Ossey";
       wipe(title, () => {
         // la nouvelle vue doit être dans le DOM avant de défiler vers une ancre
@@ -88,6 +90,7 @@ export default function App() {
       });
     }
 
+    if (current.current.kind === "project") track({ type: "project", slug: current.current.slug });
     addEventListener("hashchange", route);
     return () => removeEventListener("hashchange", route);
   }, []);

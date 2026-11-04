@@ -20,7 +20,7 @@ src/
   components/           Header (logo, menu, bouton de thème), Shot (capture d'un projet)
   sections/             Hero, Deck (fiches à lancer), Pile (rangée qui s'empile), Parcours, Stack (clavier), Contact (carte postale)
   pages/ProjectPage.tsx page détaillée d'un projet, avec zoom de la capture
-api/                    fonctions Vercel de l'admin : session.ts (connexion), content.ts (lecture / enregistrement)
+api/                    fonctions Vercel : session.ts (connexion), content.ts (contenu), track.ts (mesure d'audience), stats.ts (statistiques)
 ```
 
 Les interactions continues (glisser-lancer des fiches, rangée pilotée par le défilement, frise) écrivent
@@ -57,6 +57,19 @@ uniquement, JPEG pour les captures, PDF pour le CV), et le jeton GitHub ne quitt
 | `GITHUB_TOKEN` | jeton GitHub « fine-grained », limité à ce dépôt, permission **Contents : Read and write** |
 | `GITHUB_REPO` | facultatif, `YvanOssey/portfolio-yvan-ossey` par défaut |
 | `GITHUB_BRANCH` | facultatif, `main` par défaut |
+
+### Statistiques
+
+L'onglet **Statistiques** de l'admin affiche, sur 7, 30 ou 90 jours : pages vues, visiteurs uniques (estimation),
+projets les plus consultés, sources de visite, pays, appareils, ouvertures et téléchargements du CV, prises de contact.
+
+La mesure est anonyme (`src/lib/track.ts` → `api/track.ts`) : aucun cookie, aucune adresse IP enregistrée
+(les visiteurs uniques sont estimés par des empreintes hachées qui changent chaque jour), robots ignorés,
+« Do Not Track » respecté. Le navigateur connecté à l'admin n'est plus compté.
+
+Les compteurs sont stockés dans **Upstash Redis** (offre gratuite), relié au projet depuis Vercel :
+**Storage → Create Database → Upstash for Redis**, puis **Connect Project**. Vercel ajoute alors
+`KV_REST_API_URL` et `KV_REST_API_TOKEN` ; il suffit de redéployer.
 
 ## Modifier le contenu à la main
 
