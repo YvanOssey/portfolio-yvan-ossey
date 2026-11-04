@@ -487,13 +487,14 @@
     {
       "slug": "portfolio",
       "kinds": [
-        "web"
+        "web",
+        "fullstack"
       ],
       "title": "Portfolio",
-      "type": "Site personnel en carnet d’ingénieur",
+      "type": "Site personnel et espace admin",
       "status": "En ligne",
       "year": "2026",
-      "short": "Le site que vous parcourez : un carnet de travail qu’on manipule, avec des fiches à lancer, des projets qui s’empilent et un mode sombre, construit en React et TypeScript.",
+      "short": "Le site que vous parcourez : un carnet de travail qu’on manipule, avec des fiches à lancer et un mode sombre, plus un espace admin pour tout modifier en ligne et suivre les visites.",
       "image": {
         "src": "img/portfolio.jpg?v=1",
         "url": "yvanossey-dev.vercel.app",
@@ -503,51 +504,60 @@
       },
       "site": "https://yvanossey-dev.vercel.app/",
       "github": "https://github.com/YvanOssey/portfolio-yvan-ossey",
-      "intro": "Un portfolio qui se feuillette comme un carnet : on attrape les fiches, on fait défiler les projets, on tape sur le clavier de la stack.",
-      "description": "Plutôt qu’un modèle générique, le site reprend les codes d’un carnet de travail : papier quadrillé, surligneur, écriture manuscrite et tampons. Chaque section a son interaction : des fiches bristol qu’on lance, une rangée de projets qui s’empile au défilement, une stack présentée en clavier et un contact en carte postale. Le site est écrit en React et TypeScript : chaque interaction est un composant, et les fiches projets sont typées pour qu’aucune information ne manque à la mise en ligne.",
+      "intro": "Un portfolio qui se feuillette comme un carnet, et qui se met à jour depuis son propre espace admin, sans toucher au code.",
+      "description": "Plutôt qu’un modèle générique, le site reprend les codes d’un carnet de travail : papier quadrillé, surligneur, écriture manuscrite et tampons. Chaque section a son interaction : des fiches bristol qu’on lance, une rangée de projets qui s’empile au défilement, une stack présentée en clavier et un contact en carte postale. Derrière, un espace admin protégé permet de modifier les projets, les captures, les compétences, le parcours et le CV : chaque enregistrement devient un commit sur GitHub, et le site se remet en ligne tout seul en une minute. Un tableau de bord affiche les statistiques de visite, mesurées de façon anonyme, sans cookie.",
       "stack": [
         "React",
         "TypeScript",
         "Vite",
         "CSS3",
+        "Node.js",
+        "GitHub",
+        "Upstash Redis",
         "Vercel"
       ],
       "signature": "Un carnet qu’on feuillette plutôt qu’un CV qu’on lit.",
-      "audiences": "Recruteurs, clients et partenaires qui veulent découvrir mes projets, mon parcours, et me contacter rapidement.",
+      "audiences": "Recruteurs, clients et partenaires qui veulent découvrir mes projets et me contacter rapidement ; et moi, pour le tenir à jour en quelques minutes.",
       "features": [
         "Fiches projets à attraper et à lancer, au doigt comme à la souris",
-        "Rangée de projets qui s’empile au défilement",
-        "Stack en clavier : chaque touche montre les projets qui l’utilisent",
-        "Contact en carte postale, envoyé par e-mail ou WhatsApp",
+        "Rangée de projets qui s’empile au défilement, stack en clavier, contact en carte postale",
+        "Espace admin protégé : projets, captures, compétences, parcours, contact et CV modifiables en ligne",
+        "Publication en un clic : chaque modification devient un commit GitHub et le site se redéploie",
+        "Tableau de bord des statistiques : visites, projets consultés, sources, pays, CV et prises de contact",
         "Mode sombre, pages projet détaillées et version lisible sans JavaScript"
       ],
       "architecture": [
         [
           "Interface",
-          "React 19 et composants TypeScript"
-        ],
-        [
-          "Styles",
-          "CSS3 (variables, grilles, animations), mode sombre"
+          "React 19 et composants TypeScript, CSS3 et mode sombre"
         ],
         [
           "Interactions",
           "Hooks React : glisser-lancer, défilement, observateurs"
         ],
         [
-          "Navigation",
-          "Routage par ancre et transitions entre pages"
+          "Contenu",
+          "Fichier JSON typé et validé, versionné sur GitHub"
         ],
         [
-          "Build",
-          "Vite, typage strict vérifié avant chaque mise en ligne"
+          "API",
+          "Fonctions Vercel (Node.js) : connexion, contenu, mesure d’audience"
         ],
         [
-          "Hébergement",
-          "Vercel, images compressées, cache et en-têtes de sécurité"
+          "Publication",
+          "API GitHub : un commit par enregistrement, redéploiement automatique"
+        ],
+        [
+          "Statistiques",
+          "Upstash Redis : compteurs anonymes par jour"
+        ],
+        [
+          "Build et hébergement",
+          "Vite, typage strict, Vercel, cache et en-têtes de sécurité"
         ]
       ],
-      "role": "Direction artistique, conception des interactions, développement, captures des projets, logo et mise en ligne."
+      "role": "Direction artistique, conception des interactions, développement du site, de l’espace admin et des statistiques, sécurité, captures des projets, logo et mise en ligne.",
+      "security": "Mot de passe vérifié côté serveur, session par cookie signé (HttpOnly, Secure, SameSite=Strict), requêtes d’écriture acceptées seulement depuis le site, contenu et fichiers validés avant enregistrement, jeton GitHub limité à ce dépôt et jamais exposé au navigateur, statistiques sans cookie ni adresse IP stockée."
     }
   ],
   "skills": [
