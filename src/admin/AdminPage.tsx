@@ -5,10 +5,13 @@ import type { SiteContent } from "../data/schema";
 import { validateContent } from "../data/schema";
 import { ApiError, fileToBase64, getSession, loadContent, login, logout, saveContent, type Upload } from "./api";
 import { humanize } from "./humanize";
+import { excludeThisBrowser } from "../lib/track";
+import { StatsPanel } from "./Stats";
 import { ContactEditor, ParcoursEditor, ProjectsEditor, SkillsEditor, type Pending } from "./editors";
 import "./admin.css";
 
 const TABS = [
+  ["stats", "Statistiques"],
   ["projects", "Projets"],
   ["skills", "Compétences"],
   ["parcours", "Parcours"],
@@ -29,6 +32,7 @@ function Login({ onDone }: { onDone: () => void }) {
     setError("");
     try {
       await login(password);
+      excludeThisBrowser();
       onDone();
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Connexion impossible.");
@@ -53,14 +57,14 @@ export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [draft, setDraft] = useState<SiteContent | null>(null);
   const [sha, setSha] = useState("");
-  const [tab, setTab] = useState<Tab>("projects");
+  const [tab, setTab] = useState<Tab>("stats");
   const [pending, setPending] = useState<Pending>({});
   const [cv, setCv] = useState<{ name: string; base64: string } | null>(null);
   const [dirty, setDirty] = useState(false);
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
   useEffect(() => {
-    getSession().then((s) => setAuthed(s.authenticated)).catch(() => setAuthed(false));
+    getSession().then((s) => { setAuthed(s.authenticated); if (s.authenticated) excludeThisBrowser(); }).catch(() => setAuthed(false));
   }, []);
 
   useEffect(() => {
@@ -156,6 +160,7 @@ export default function AdminPage() {
         ))}
       </nav>
 
+      {tab === "stats" && <StatsPanel content={draft} />}
       {tab === "projects" && (
         <ProjectsEditor projects={draft.projects} onChange={(projects) => update({ ...draft, projects })}
           pending={pending} setPending={(p) => { setPending(p); setDirty(true); }} />
@@ -179,6 +184,8 @@ export default function AdminPage() {
         </section>
       )}
 
+      {/* rien à enregistrer sur l'onglet Statistiques : la barre ne s'affiche que s'il reste des modifications */}
+      {(tab !== "stats" || dirty || status.kind !== "idle") && (
       <div className="ad-savebar" role="region" aria-label="Enregistrement">
         <p aria-live="polite" className={status.kind === "error" ? "ad-error" : status.kind === "ok" ? "ad-ok" : ""}>
           {status.kind === "saving" && "Enregistrement sur GitHub…"}
@@ -193,6 +200,7 @@ export default function AdminPage() {
           {status.kind === "saving" ? "Enregistrement…" : "Enregistrer et publier"}
         </button>
       </div>
+      )}
     </main>
   );
 }

@@ -3,6 +3,7 @@ import { useReveal } from "../hooks/useReveal";
 import { pause, reduced, type CSSVars } from "../lib/util";
 
 import { CONTENT } from "../data/projects";
+import { track } from "../lib/track";
 
 const C = CONTENT.contact;
 const EMAIL = C.email;
@@ -77,6 +78,7 @@ function Postcard() {
     } else {
       mark.classList.add("on");
     }
+    track({ type: "contact", action: via === "wa" ? "carte-whatsapp" : "carte-email" });
     if (via === "wa") {
       window.open(`https://wa.me/${PHONE.slice(1)}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     } else {

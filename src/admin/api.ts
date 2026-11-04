@@ -53,3 +53,18 @@ export function fileToBase64(file: File): Promise<string> {
     r.readAsDataURL(file);
   });
 }
+
+export interface Stats {
+  configured: boolean;
+  days: number;
+  totals: { views: number; visitors: number; projectViews: number; cv: number; contacts: number };
+  daily: { day: string; views: number; visitors: number }[];
+  sources: Record<string, number>;
+  devices: Record<string, number>;
+  countries: Record<string, number>;
+  projects: Record<string, number>;
+  cv: Record<string, number>;
+  contact: Record<string, number>;
+}
+
+export const loadStats = (days: number) => call<Stats>(`/api/stats?days=${days}`);

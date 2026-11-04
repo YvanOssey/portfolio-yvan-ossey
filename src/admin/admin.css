@@ -74,3 +74,34 @@
   .ad-list { position: static; }
   .ad-list ol { max-height: 220px; }
 }
+
+/* ---------- Statistiques ---------- */
+.st-period { display: flex; gap: 6px; }
+.st-period button[aria-pressed="true"] { background: var(--ink) !important; color: var(--sheet) !important; }
+.st-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.st-kpi { display: grid; gap: 2px; padding: 16px; background: var(--sheet); border: 1.5px solid var(--line); border-radius: 6px; }
+.st-kpi-v { font-size: 32px; font-weight: 750; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.st-kpi-l { font-weight: 600; color: var(--ink-2); }
+.st-chart { position: relative; }
+.st-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.st-grid { stroke: var(--line); stroke-width: 1; }
+.st-axis { fill: var(--ink-2); font-size: 11px; font-family: inherit; }
+.st-bar { fill: var(--blue); opacity: 0.85; }
+.st-bar.on { opacity: 1; }
+.st-chart rect:focus { outline: none; }
+.st-chart rect:focus-visible { outline: 2px solid var(--blue); }
+.st-tip {
+  position: absolute; top: -6px; transform: translate(-50%, -100%); pointer-events: none; white-space: nowrap;
+  display: grid; gap: 1px; padding: 7px 10px; font-size: 13px; background: var(--ink); color: var(--sheet); border-radius: 5px;
+}
+.st-table { margin-top: 10px; font-size: 13px; }
+.st-table summary { cursor: pointer; color: var(--blue); font-weight: 600; }
+.st-table table { margin-top: 8px; border-collapse: collapse; min-width: 280px; }
+.st-table th, .st-table td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.st-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.st-rank ol { list-style: none; display: grid; gap: 8px; }
+.st-rank li { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(60px, 1fr) auto; gap: 10px; align-items: center; font-size: 14px; }
+.st-rank-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.st-rank-bar { height: 8px; background: var(--paper); border-radius: 4px; overflow: hidden; }
+.st-rank-bar i { display: block; height: 100%; background: var(--blue); border-radius: 4px; }
+.st-rank-n { font-variant-numeric: tabular-nums; font-weight: 600; min-width: 3ch; text-align: right; }
