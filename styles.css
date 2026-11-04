@@ -166,21 +166,22 @@ mark.hl.in { background-size: 100% 76%; color: var(--on-blue); }
 .card {
   position: absolute; inset: 0; border: 1.5px solid var(--ink); border-radius: 6px;
   background: var(--sheet); color: var(--ink); text-decoration: none; overflow: hidden;
-  display: grid; grid-template-rows: 54% 1fr;
+  /* flex + hauteurs explicites : Safari iOS laissait l'image déborder d'une ligne de grille en % */
+  display: flex; flex-direction: column;
   box-shadow: 5px 5px 0 var(--shade);
   transform-origin: 50% 90%;
   transition: transform 600ms var(--spring), opacity 400ms var(--ease);
   user-select: none; -webkit-user-drag: none; cursor: grab; will-change: transform;
 }
 .card.dragging { transition: none; cursor: grabbing; }
-.card .cover { display: block; width: 100%; height: 100%; object-fit: cover; border-bottom: 1.5px solid var(--ink); background: var(--paper); pointer-events: none; }
+.card .cover { display: block; flex: 0 0 54%; width: 100%; height: 54%; min-height: 0; object-fit: cover; border-bottom: 1.5px solid var(--ink); background: var(--paper); pointer-events: none; }
 .shot-empty, .card .cover.shot-empty {
   display: grid; place-content: center; justify-items: center; gap: 4px;
   background: repeating-linear-gradient(-45deg, var(--paper) 0 10px, var(--sheet) 10px 20px);
 }
 .shot-empty span { font-size: 56px; font-weight: 800; letter-spacing: -0.005em; line-height: 1; }
 .shot-empty small { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); }
-.card-body { padding: 16px 20px 20px; display: flex; flex-direction: column; position: relative; }
+.card-body { flex: 1 1 auto; min-height: 0; padding: 16px 20px 20px; display: flex; flex-direction: column; position: relative; background: var(--sheet); }
 .card-top { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-2); }
 .card-top i { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--paper); }
 .card h3 { margin-top: 14px; font-size: clamp(30px, 2.8vw, 40px); line-height: 0.98; font-weight: 750; letter-spacing: -0.005em; }
@@ -527,6 +528,9 @@ mark.hl.in { background-size: 100% 76%; color: var(--on-blue); }
   .d-head { grid-template-columns: minmax(0, 1fr); }
   .key { min-height: 42px; padding: 8px 12px; font-size: 14px; }
   .deck { width: min(300px, 74vw); }
+  .card .cover { flex-basis: 50%; height: 50%; }
+  .card-body { padding: 14px 18px 16px; }
+  .card h3 { margin-top: 10px; font-size: 28px; }
   .ruler dd { font-size: 32px; }
 }
 
@@ -797,3 +801,14 @@ sup { font-size: 0.55em; line-height: 0; vertical-align: super; }
 html:not(.js) .deck-zone, html:not(.js) .pile, html:not(.js) .kb-wrap, html:not(.js) .margin-note, html:not(.js) .postcard { display: none; }
 html:not(.js) mark.hl { background-size: 100% 76%; color: var(--on-blue); }
 html:not(.js) .theme-toggle { display: none; }
+
+/* Écrans tactiles : pas d'effet de survol « collé » après un toucher */
+@media (hover: none) {
+  .theme-toggle:hover { transform: none; box-shadow: 3px 3px 0 var(--shade); }
+  .card:hover .open { background: transparent; color: inherit; }
+}
+/* Bascule de thème sur écran tactile : simple fondu des couleurs (voir setTheme dans main.js) */
+.theme-fade, .theme-fade *, .theme-fade *::before, .theme-fade *::after {
+  transition: background-color 350ms ease, color 350ms ease, border-color 350ms ease, box-shadow 350ms ease, fill 350ms ease, stroke 350ms ease !important;
+}
+.theme-fade .theme-toggle * { transition: transform 500ms var(--spring), opacity 300ms ease, fill 350ms ease !important; }
