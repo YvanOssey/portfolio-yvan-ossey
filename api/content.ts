@@ -1,7 +1,7 @@
 // Contenu du portfolio : GET le lit depuis GitHub, POST l'enregistre (avec captures et CV) en un commit.
-import { isAuthenticated, json, sameOrigin } from "./_lib/auth";
-import { commitFiles, readFile, type FileChange } from "./_lib/github";
-import { validateContent, type SiteContent } from "../src/data/schema";
+import { isAuthenticated, json, sameOrigin } from "./_lib/auth.js";
+import { commitFiles, readFile, type FileChange } from "./_lib/github.js";
+import { validateContent, type SiteContent } from "../src/data/schema.js";
 
 const CONTENT_PATH = "src/data/content.json";
 const CV_PATH = "public/cv/CV_Yvan_Ossey.pdf";
