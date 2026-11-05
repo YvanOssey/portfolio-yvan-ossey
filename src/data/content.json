@@ -638,6 +638,10 @@
       ]
     }
   ],
+  "commonTools": [
+    "GitHub",
+    "Figma"
+  ],
   "parcours": {
     "about": [
       "Je m’appelle **Ossey Yvan Jean De Kenty**, étudiant en Licence 3 MIAGE à l’Université Polytechnique de Bingerville. Je conçois et livre des applications web et mobiles complètes, de la maquette Figma au déploiement.",

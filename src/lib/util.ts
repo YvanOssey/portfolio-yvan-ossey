@@ -1,4 +1,4 @@
-import { PROJECTS, type Project, type ProjectStatus } from "../data/projects";
+import { CONTENT, PROJECTS, type Project, type ProjectStatus } from "../data/projects";
 
 export const reduced =
   typeof matchMedia !== "undefined" && matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -13,8 +13,10 @@ export const stampClass = (p: Project) => `stamp ${HOT.has(p.status) ? "" : "mut
 
 /** « Next.js 15 » et « Next.js » désignent la même touche du clavier */
 const techKey = (s: string) => s.toLowerCase().replace(/[^a-z0-9.]+/g, " ").trim().split(" ")[0];
+/** Outils déclarés communs à tous les projets (onglet Compétences de l'admin) */
+export const isCommonTool = (tech: string) => (CONTENT.commonTools ?? []).some((t) => techKey(t) === techKey(tech));
 export const usedIn = (tech: string) =>
-  PROJECTS.filter((p) => p.stack.some((s) => techKey(s) === techKey(tech)));
+  isCommonTool(tech) ? PROJECTS : PROJECTS.filter((p) => p.stack.some((s) => techKey(s) === techKey(tech)));
 
 export const pause = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 

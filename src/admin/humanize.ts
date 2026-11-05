@@ -11,7 +11,7 @@ const FIELDS: Record<string, string> = {
   date: "Période", org: "Structure", formation: "Formation", when: "Période", what: "Diplôme", where: "Établissement",
   certifications: "Certifications", name: "Intitulé", qualities: "Qualités", cvUpdated: "Date du CV", lede: "Phrase d’accueil",
   email: "E-mail", phone: "Téléphone", phoneLabel: "Téléphone affiché", linkedin: "Lien LinkedIn", linkedinLabel: "LinkedIn affiché",
-  githubLabel: "GitHub affiché", city: "Ville", country: "Pays",
+  githubLabel: "GitHub affiché", city: "Ville", country: "Pays", commonTools: "Outils communs",
 };
 const SECTIONS: Record<string, string> = { hero: "Accueil", skills: "Compétences", parcours: "Parcours", contact: "Contact" };
 

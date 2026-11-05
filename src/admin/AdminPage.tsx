@@ -165,7 +165,10 @@ export default function AdminPage() {
         <ProjectsEditor projects={draft.projects} onChange={(projects) => update({ ...draft, projects })}
           pending={pending} setPending={(p) => { setPending(p); setDirty(true); }} />
       )}
-      {tab === "skills" && <SkillsEditor skills={draft.skills} onChange={(skills) => update({ ...draft, skills })} />}
+      {tab === "skills" && (
+        <SkillsEditor skills={draft.skills} onChange={(skills) => update({ ...draft, skills })}
+          common={draft.commonTools ?? []} onCommon={(commonTools) => update({ ...draft, commonTools })} />
+      )}
       {tab === "parcours" && <ParcoursEditor value={draft.parcours} onChange={(parcours) => update({ ...draft, parcours })} />}
       {tab === "contact" && <ContactEditor content={draft} onChange={update} />}
       {tab === "cv" && (
