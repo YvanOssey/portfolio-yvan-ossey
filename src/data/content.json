@@ -382,54 +382,69 @@
     {
       "slug": "obvx",
       "kinds": [
+        "fullstack",
         "web"
       ],
       "title": "OBVX",
-      "type": "Boutique e-commerce",
-      "status": "Réalisé",
-      "year": "2025",
-      "short": "Interface responsive avec catalogue dynamique, panier interactif et expérience d’achat claire.",
+      "type": "Boutique e-commerce streetwear full-stack",
+      "status": "En ligne",
+      "year": "2026",
+      "short": "Boutique en ligne de la marque OBVX : catalogue, fiches produit recto-verso, panier, comptes clients et commandes, avec un front React et une API Spring Boot.",
       "image": {
-        "src": "img/obvx.jpg",
+        "src": "img/obvx.jpg?v=2",
         "url": "obvx.vercel.app",
         "caption": "Page d’accueil de la boutique en ligne",
         "position": "center top",
-        "alt": "Page d’accueil de la boutique OBVX"
+        "alt": "Page d’accueil de la boutique OBVX, nouvelle collection streetwear"
       },
       "github": "https://github.com/YvanOssey/obvx",
-      "intro": "Une expérience e-commerce responsive avec catalogue dynamique et panier interactif.",
-      "description": "OBVX présente des produits de façon structurée et propose une expérience d’achat adaptée aux différents formats d’écran.",
+      "intro": "La boutique de la marque de streetwear OBVX, de la vitrine à la commande, avec une vraie API derrière.",
+      "description": "OBVX présente la collection de la marque avec une vitrine éditoriale, une boutique filtrable et des fiches produit qui montrent chaque vêtement de face et de dos. Le client choisit sa taille, remplit son panier, crée son compte et passe commande ; il retrouve ensuite l’historique de ses commandes dans son espace. Le site React dialogue avec une API Spring Boot qui gère les comptes, le catalogue et les commandes dans une base PostgreSQL, en recalculant toujours les prix côté serveur.",
       "stack": [
-        "HTML5",
-        "CSS3",
-        "JavaScript"
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Spring Boot",
+        "Java",
+        "PostgreSQL",
+        "JWT",
+        "Render",
+        "Vercel"
       ],
       "signature": "Faire passer le produit avant le bruit.",
-      "audiences": "Visiteurs mobiles et desktop à la recherche d’une expérience d’achat claire.",
+      "audiences": "Les clients de la marque OBVX, sur mobile comme sur ordinateur, et l’équipe qui gère le catalogue et les commandes.",
       "features": [
-        "Catalogue produit structuré",
-        "Panier interactif",
-        "Présentation responsive et lisible"
+        "Vitrine éditoriale, boutique par catégories et collections",
+        "Fiches produit avec vues de face et de dos, choix de la taille",
+        "Panier conservé entre les visites, avec notification d’ajout",
+        "Comptes clients : inscription, connexion et historique des commandes",
+        "Commandes vérifiées par le serveur : prix, tailles et quantités contrôlés"
       ],
       "architecture": [
         [
-          "Interface",
-          "HTML5 et CSS3"
+          "Front",
+          "React 19, Vite, Tailwind CSS 4, React Router, Framer Motion"
         ],
         [
-          "Interactions",
-          "JavaScript ES6+"
+          "API",
+          "Spring Boot (Java 17) : authentification, produits, commandes"
         ],
         [
-          "Responsive",
-          "Adaptation multi-écrans"
+          "Données",
+          "PostgreSQL (Neon) avec JPA ; base H2 en mémoire en local"
         ],
         [
-          "Expérience",
-          "Navigation orientée conversion"
+          "Sécurité",
+          "Spring Security, JWT sans état, mots de passe BCrypt, CORS limité"
+        ],
+        [
+          "Hébergement",
+          "Site sur Vercel, API en conteneur Docker sur Render"
         ]
       ],
-      "role": "Conception de l’interface, développement des interactions, structuration du catalogue et optimisation responsive."
+      "role": "Conception de la boutique, développement du front React et de l’API Spring Boot, modélisation des données, sécurité des comptes et des commandes, puis mise en production sur Vercel, Render et Neon.",
+      "site": "https://obvx.vercel.app/",
+      "security": "Sessions JWT sans état, mots de passe hachés avec BCrypt, routes protégées par Spring Security, origines autorisées limitées, et prix toujours relus en base au moment de la commande : le navigateur ne peut pas les modifier."
     },
     {
       "slug": "obc-aec",
@@ -589,6 +604,8 @@
       "items": [
         "Node.js",
         "Express",
+        "Java",
+        "Spring Boot",
         "tRPC",
         "Supabase",
         "Zod",
