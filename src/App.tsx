@@ -18,7 +18,7 @@ const AdminPage = lazy(() => import("./admin/AdminPage"));
 /** Vue affichée : l'accueil, la page d'un projet (#/projet/slug) ou l'espace admin (#/admin) */
 type View = { kind: "home" } | { kind: "admin" } | { kind: "project"; slug: string };
 
-const HOME_TITLE = "Yvan Ossey — Développeur web & mobile";
+const HOME_TITLE = "Yvan Ossey — Développeur full-stack web & mobile à Abidjan";
 const parseHash = (hash: string): View => {
   if (/^#\/admin/.test(hash)) return { kind: "admin" };
   const m = hash.match(/^#\/projet\/([\w-]+)/);
@@ -41,7 +41,11 @@ function Home({ hidden }: { hidden: boolean }) {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>(() => parseHash(location.hash));
+  // /projet/<slug> (page générée pour les moteurs de recherche) ouvre la même fiche que #/projet/<slug>
+  const [view, setView] = useState<View>(() => {
+    const path = location.pathname.match(/^\/projet\/([\w-]+)/);
+    return parseHash(location.hash || (path ? `#/projet/${path[1]}` : ""));
+  });
   const wipeRef = useRef<HTMLDivElement>(null);
   const wipeTitleRef = useRef<HTMLSpanElement>(null);
   const current = useRef(view);
@@ -97,7 +101,7 @@ export default function App() {
 
   useEffect(() => {
     document.title = view.kind === "project"
-      ? `${PROJECTS.find((p) => p.slug === view.slug)!.title} — Yvan Ossey`
+      ? (({ title, type }) => `${title} — ${type} | Yvan Ossey`)(PROJECTS.find((p) => p.slug === view.slug)!)
       : view.kind === "admin" ? "Espace admin — Yvan Ossey" : HOME_TITLE;
   }, [view]);
 
