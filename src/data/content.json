@@ -385,51 +385,63 @@
         "web"
       ],
       "title": "OBVX",
-      "type": "Boutique e-commerce",
-      "status": "Réalisé",
-      "year": "2025",
-      "short": "Interface responsive avec catalogue dynamique, panier interactif et expérience d’achat claire.",
+      "type": "Boutique e-commerce streetwear (front-end)",
+      "status": "En ligne",
+      "year": "2026",
+      "short": "Front-end de la boutique en ligne de la marque OBVX : vitrine, catalogue, fiches produit recto-verso, panier, comptes clients et commandes, branché sur une API Spring Boot.",
       "image": {
-        "src": "img/obvx.jpg",
+        "src": "img/obvx.jpg?v=2",
         "url": "obvx.vercel.app",
         "caption": "Page d’accueil de la boutique en ligne",
         "position": "center top",
-        "alt": "Page d’accueil de la boutique OBVX"
+        "alt": "Page d’accueil de la boutique OBVX, nouvelle collection streetwear"
       },
       "github": "https://github.com/YvanOssey/obvx",
-      "intro": "Une expérience e-commerce responsive avec catalogue dynamique et panier interactif.",
-      "description": "OBVX présente des produits de façon structurée et propose une expérience d’achat adaptée aux différents formats d’écran.",
+      "intro": "J’ai conçu et développé le site de la boutique OBVX, de la vitrine à la commande ; l’API qui le fait tourner a été réalisée par un autre développeur.",
+      "description": "OBVX présente la collection de la marque avec une vitrine éditoriale, une boutique filtrable et des fiches produit qui montrent chaque vêtement de face et de dos. Le client choisit sa taille, remplit son panier, crée son compte et passe commande ; il retrouve ensuite l’historique de ses commandes dans son espace. Ma part est le front-end en React : interface, parcours d’achat, gestion du panier et de la session, et connexion à l’API. Le back-end (API Spring Boot et base PostgreSQL) n’est pas de moi : il a été développé par un autre développeur.",
       "stack": [
-        "HTML5",
-        "CSS3",
-        "JavaScript"
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "JavaScript ES6+",
+        "Framer Motion",
+        "Vercel"
       ],
       "signature": "Faire passer le produit avant le bruit.",
-      "audiences": "Visiteurs mobiles et desktop à la recherche d’une expérience d’achat claire.",
+      "audiences": "Les clients de la marque OBVX, sur mobile comme sur ordinateur.",
       "features": [
-        "Catalogue produit structuré",
-        "Panier interactif",
-        "Présentation responsive et lisible"
+        "Vitrine éditoriale, boutique par catégories et collections",
+        "Fiches produit avec vues de face et de dos, choix de la taille",
+        "Panier conservé entre les visites, avec notification d’ajout",
+        "Comptes clients : inscription, connexion et historique des commandes",
+        "Commandes vérifiées par le serveur : prix, tailles et quantités contrôlés"
       ],
       "architecture": [
         [
-          "Interface",
-          "HTML5 et CSS3"
+          "Front (mon travail)",
+          "React 19, Vite, Tailwind CSS 4, React Router, Framer Motion"
         ],
         [
-          "Interactions",
-          "JavaScript ES6+"
+          "État côté site",
+          "Contextes React pour le panier et la session, panier conservé dans le navigateur"
         ],
         [
-          "Responsive",
-          "Adaptation multi-écrans"
+          "Connexion à l’API",
+          "Appels REST authentifiés par jeton, adresse de l’API configurable"
         ],
         [
-          "Expérience",
-          "Navigation orientée conversion"
+          "API (autre développeur)",
+          "Spring Boot, PostgreSQL, JWT : comptes, produits, commandes"
+        ],
+        [
+          "Hébergement",
+          "Site sur Vercel ; API sur Render"
         ]
       ],
-      "role": "Conception de l’interface, développement des interactions, structuration du catalogue et optimisation responsive."
+      "role": "Front-end uniquement : conception et intégration de l’interface, parcours d’achat (boutique, fiche produit, panier, compte), gestion du panier et de la session, connexion à l’API et mise en ligne du site sur Vercel. Le back-end a été réalisé par un autre développeur.",
+      "site": "https://obvx.vercel.app/",
+      "security": "Côté site : jeton de session envoyé uniquement à l’API, routes du compte réservées aux clients connectés. Les contrôles de sécurité du serveur (mots de passe, prix, commandes) relèvent de l’API, réalisée par un autre développeur.",
+      "roleTitle": "Développeur front-end"
     },
     {
       "slug": "obc-aec",
