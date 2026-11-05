@@ -77,6 +77,8 @@ export interface SiteContent {
   hero: { lede: string };
   projects: Project[];
   skills: SkillGroup[];
+  /** Outils utilisés dans tous les projets (ex. GitHub, Figma) : leur touche compte chaque projet */
+  commonTools?: string[];
   parcours: Parcours;
   contact: Contact;
 }
@@ -167,6 +169,7 @@ const contentCheck = obj({
     color: str({ max: 9, pattern: /^#[0-9a-fA-F]{6}$/ }),
     items: list(str({ max: 40 }), { min: 1, max: 30 }),
   }), { min: 1, max: 10 }),
+  commonTools: (v, path, errors) => { if (v !== undefined) list(str({ max: 40 }), { max: 15 })(v, path, errors); },
   parcours: obj({
     about: list(str({ max: 1200 }), { min: 1, max: 6 }),
     facts: list(pair, { max: 8 }),

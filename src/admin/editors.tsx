@@ -168,10 +168,17 @@ export function ProjectsEditor({ projects, onChange, pending, setPending }: {
 
 /* -------------------------------------------------------------- Compétences */
 
-export function SkillsEditor({ skills, onChange }: { skills: SkillGroup[]; onChange: (s: SkillGroup[]) => void }) {
+export function SkillsEditor({ skills, onChange, common, onCommon }: {
+  skills: SkillGroup[]; onChange: (s: SkillGroup[]) => void; common: string[]; onCommon: (c: string[]) => void;
+}) {
   const set = (i: number, patch: Partial<SkillGroup>) => onChange(skills.map((g, k) => (k === i ? { ...g, ...patch } : g)));
   return (
     <div className="ad-stack">
+      <section className="ad-box">
+        <h3>Outils utilisés dans tous les projets</h3>
+        <ListArea mode="csv" label="Outils communs" value={common} onChange={(v: string[]) => onCommon(v)}
+          hint="Séparés par des virgules, ex. GitHub, Figma. Leur touche du clavier affiche alors tous les projets." />
+      </section>
       {skills.map((g, i) => (
         <section className="ad-box" key={i}>
           <div className="ad-row">

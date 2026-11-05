@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SKILLS, type SkillGroup } from "../data/projects";
 import { Shot } from "../components/Shot";
 import { useReveal } from "../hooks/useReveal";
-import { usedIn, type CSSVars } from "../lib/util";
+import { isCommonTool, usedIn, type CSSVars } from "../lib/util";
 
 interface Selection { tech: string; group: SkillGroup }
 
@@ -20,7 +20,9 @@ function Usage({ tech, group }: Selection) {
       <h3>{tech}</h3>
       <p className="u-sub">
         {list.length
-          ? <>Utilisé dans <b>{list.length}</b> projet{list.length > 1 ? "s" : ""}</>
+          ? isCommonTool(tech)
+            ? <>Utilisé dans <b>tous</b> mes projets</>
+            : <>Utilisé dans <b>{list.length}</b> projet{list.length > 1 ? "s" : ""}</>
           : "Outil du quotidien, au service de tous les projets."}
       </p>
       {list.length > 0 && (
