@@ -702,10 +702,6 @@
         "org": "Cisco Networking Academy"
       },
       {
-        "name": "Full-Stack Development 101",
-        "org": "Simplilearn"
-      },
-      {
         "name": "Développement Front-End",
         "org": "NovaSavo"
       },
@@ -716,6 +712,10 @@
       {
         "name": "Vibeathon 2026",
         "org": "Participation"
+      },
+      {
+        "name": "Introduction to Front-End Development",
+        "org": "Meta"
       }
     ],
     "qualities": [
